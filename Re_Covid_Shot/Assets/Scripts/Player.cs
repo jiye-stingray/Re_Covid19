@@ -19,6 +19,11 @@ public class Player : MonoBehaviour
     void Update()
     {
 
+
+    }
+
+    void FixedUpdate()
+    {
         Move();
 
     }
@@ -30,4 +35,6 @@ public class Player : MonoBehaviour
 
         transform.Translate(new Vector3(xMove, yMove, 0) * speed * Time.deltaTime);
     }
+
+
 }
