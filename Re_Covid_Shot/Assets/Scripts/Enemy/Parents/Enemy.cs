@@ -6,8 +6,10 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] int HP;
     [SerializeField] int speed;
+    [SerializeField] protected GameObject bullet;
 
     public int power;
+
 
 
     // Start is called before the first frame update
@@ -30,6 +32,11 @@ public class Enemy : MonoBehaviour
     protected void Dead()
     {
         Destroy(gameObject);
+    }
+
+    protected virtual IEnumerator Attack()
+    {
+        yield return null;
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)

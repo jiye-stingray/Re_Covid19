@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] int speed;
     public int power;
 
+    Vector3 moveVec;
+
     public enum BulletType
     {
         Player,
@@ -19,13 +21,24 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        switch (myBullet)
+        {
+            case BulletType.Player:
+                moveVec = Vector3.up;
+                break;
+            case BulletType.Enemy:
+                moveVec = Vector3.down;
+                break;
+            default:
+                break;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * speed * Time.deltaTime);
+        
+        transform.Translate( moveVec * speed * Time.deltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -39,6 +52,14 @@ public class Bullet : MonoBehaviour
             if(myBullet == BulletType.Player)
             {
                 Destroy(gameObject);
+            }
+        }
+        else if(collision.gameObject.CompareTag("Player"))
+        {
+            if (myBullet == BulletType.Enemy)
+            {
+                Destroy(gameObject);
+
             }
         }
     }

@@ -9,8 +9,10 @@ public class Player : MonoBehaviour
     [SerializeField] int speed;
     [SerializeField] bool isInvisibility;
 
-     [SerializeField] float fireTimer;
+    [SerializeField] float fireTimer;
     [SerializeField] float fireDelay;
+
+    GameManager gameManager => SystemManager.Instance.GameManager;
 
     Animator anim;
     SpriteRenderer sprite;
@@ -88,9 +90,17 @@ public class Player : MonoBehaviour
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-                SystemManager.Instance.GameManager.HP -= (int)(enemy.power * 0.5f);
+                gameManager.HP -= (int)(enemy.power * 0.5f);
                 StartCoroutine(Invisibility(1.5f, 1.5f));
 
+            }
+            else if (collision.gameObject.CompareTag("Bullet"))
+            {
+                Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+                if(bullet.myBullet == Bullet.BulletType.Enemy)
+                {
+                    gameManager.HP -= bullet.power;
+                }
             }
         }
 
