@@ -8,6 +8,12 @@ public class Player : MonoBehaviour
     float yMove;
 
     [SerializeField] int speed;
+    [SerializeField] Animator anim;
+
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +40,8 @@ public class Player : MonoBehaviour
         yMove = Input.GetAxisRaw("Vertical");
 
         transform.Translate(new Vector3(xMove, yMove, 0) * speed * Time.deltaTime);
+
+        anim.SetInteger("isMove",(int)xMove);
     }
 
 
