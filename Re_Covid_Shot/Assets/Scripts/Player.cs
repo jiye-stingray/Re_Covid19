@@ -8,7 +8,10 @@ public class Player : MonoBehaviour
     float yMove;
 
     [SerializeField] int speed;
-    [SerializeField] Animator anim;
+    Animator anim;
+
+    [SerializeField] GameObject[] bullets;
+    public int bulletLevel;
 
     void Awake()
     {
@@ -24,7 +27,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        FireCheck();
 
     }
 
@@ -44,5 +47,13 @@ public class Player : MonoBehaviour
         anim.SetInteger("isMove",(int)xMove);
     }
 
+    void FireCheck()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(bullets[bulletLevel], transform.position, transform.rotation);
+
+        }
+    }
 
 }
