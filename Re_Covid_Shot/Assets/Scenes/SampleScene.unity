@@ -450,6 +450,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   isInvisibility: 0
+  fireTimer: 0
+  fireDelay: 0.2
   bullets:
   - {fileID: 5418033689218829077, guid: eaf6dbcd4e929384db59673ab47aa74e, type: 3}
   - {fileID: 2403423693540089054, guid: a45095c5603875e41872af830ff5e0d8, type: 3}

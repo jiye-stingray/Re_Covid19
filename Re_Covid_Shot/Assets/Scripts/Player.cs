@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] int speed;
     [SerializeField] bool isInvisibility;
 
+     [SerializeField] float fireTimer;
+    [SerializeField] float fireDelay;
 
     Animator anim;
     SpriteRenderer sprite;
@@ -31,7 +33,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Fire();
+        
+        FireCheck();
 
     }
 
@@ -55,15 +58,26 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
-    /// 발사 함수
+    /// 발사 조건 확인
+    /// </summary>
+    void FireCheck()
+    {
+        fireTimer += Time.deltaTime;
+        if (Input.GetMouseButton(0) && fireTimer >= fireDelay)
+        {
+            Fire();
+        }
+    }
+
+    /// <summary>
+    /// 실질적 발사 함수
     /// </summary>
     void Fire()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Instantiate(bullets[bulletLevel], transform.position, transform.rotation);
 
-        }
+        Instantiate(bullets[bulletLevel], transform.position, transform.rotation);
+        fireTimer = 0f;
+
     }
 
 
