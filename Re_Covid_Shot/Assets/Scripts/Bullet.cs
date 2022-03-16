@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
 
     [SerializeField] int speed;
+    public int power;
 
     public enum BulletType
     {
@@ -32,6 +33,13 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Wall"))
         {
             Destroy(gameObject);
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            if(myBullet == BulletType.Player)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

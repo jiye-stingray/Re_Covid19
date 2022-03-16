@@ -19,6 +19,11 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
+        if(HP <= 0)
+        {
+            Dead();
+        }
+
         transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
 
@@ -34,7 +39,7 @@ public class Enemy : MonoBehaviour
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
             if(bullet.myBullet == Bullet.BulletType.Player)
             {
-                Dead();
+                HP -= bullet.power;
             }
         }
         else if (collision.gameObject.CompareTag("Wall"))

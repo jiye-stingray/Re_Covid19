@@ -85,6 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  power: 1
   myBullet: 0
 --- !u!1 &5418033689489851695
 GameObject:
