@@ -5,8 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] int HP;
-    [SerializeField] int speed;
+    public int speed;
     [SerializeField] protected GameObject bullet;
+    public bool isBoss = true;
 
     public int power;
 
@@ -51,6 +52,9 @@ public class Enemy : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Wall"))
         {
+            if (isBoss)
+                return;
+
             SystemManager.Instance.GameManager.pain += (int)(power * 0.5f);
 
             Dead();
