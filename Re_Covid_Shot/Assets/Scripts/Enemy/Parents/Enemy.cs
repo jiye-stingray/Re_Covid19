@@ -5,8 +5,10 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] int HP;
-    [SerializeField] int power;
     [SerializeField] int speed;
+
+    public int power;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,22 +22,32 @@ public class Enemy : MonoBehaviour
         transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
 
+    protected void Dead()
+    {
+        Destroy(gameObject);
+    }
+
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
             if(bullet.myBullet == Bullet.BulletType.Player)
             {
-                Destroy(gameObject);
+                Dead();
             }
         }
-        else if(collision.gameObject.CompareTag("Wall"))
+        else if (collision.gameObject.CompareTag("Wall"))
         {
-            //공격력의 절반 만큼 고통게이지 증가
+            SystemManager.Instance.GameManager.pain += (int)(power * 0.5f);
 
-            Destroy(gameObject);
+            Dead();
         }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            Dead();
+        }
+
     }
+
 }

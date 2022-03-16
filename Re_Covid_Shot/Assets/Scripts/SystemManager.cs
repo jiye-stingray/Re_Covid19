@@ -28,15 +28,12 @@ public class SystemManager : MonoBehaviour
         instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameManager gameManager;
+    public GameManager GameManager
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        get
+        {
+            return gameManager;
+        }
     }
 }

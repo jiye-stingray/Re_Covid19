@@ -56,14 +56,20 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             //무적 상태
 
             //몬스터의 공격력 절반 만큼 체력 감소
+
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+
+            SystemManager.Instance.GameManager.HP -= (int)(enemy.power * 0.5f);
         }
     }
+
 
 }
