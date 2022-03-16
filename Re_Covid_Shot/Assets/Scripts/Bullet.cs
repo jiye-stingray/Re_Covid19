@@ -7,6 +7,14 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] int speed;
 
+    public enum BulletType
+    {
+        Player,
+        Enemy
+    }
+
+    public BulletType myBullet;
+
     // Start is called before the first frame update
     void Start()
     {
