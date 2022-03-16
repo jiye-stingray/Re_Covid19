@@ -6,9 +6,12 @@ public class Player : MonoBehaviour
 {
     float xMove;
     float yMove;
-
     [SerializeField] int speed;
+    [SerializeField] bool isInvisibility;
+
+
     Animator anim;
+    SpriteRenderer sprite;
 
     [SerializeField] GameObject[] bullets;
     public int bulletLevel;
@@ -16,6 +19,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Start is called before the first frame update
@@ -27,7 +31,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FireCheck();
+        Fire();
 
     }
 
@@ -37,6 +41,9 @@ public class Player : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// 움직임 함수
+    /// </summary>
     void Move()
     {
         xMove = Input.GetAxisRaw("Horizontal");
@@ -47,7 +54,10 @@ public class Player : MonoBehaviour
         anim.SetInteger("isMove",(int)xMove);
     }
 
-    void FireCheck()
+    /// <summary>
+    /// 발사 함수
+    /// </summary>
+    void Fire()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -59,17 +69,35 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (!isInvisibility)
         {
-            //무적 상태
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+                SystemManager.Instance.GameManager.HP -= (int)(enemy.power * 0.5f);
+                StartCoroutine(Invisibility(1.5f, 1.5f));
 
-            //몬스터의 공격력 절반 만큼 체력 감소
-
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-
-            SystemManager.Instance.GameManager.HP -= (int)(enemy.power * 0.5f);
+            }
         }
+
+
     }
 
+    /// <summary>
+    /// 무적 상태를 나타내는 함수
+    /// </summary>
+    /// <param name="showTime">무적시간을 나타내는 효과가 지속되는 시간</param>
+    /// <param name="realTIme">실제 무적 시간</param>
+    /// <returns></returns>
+    IEnumerator Invisibility(float showTime, float realTIme)
+    {
+        isInvisibility = true;
+        sprite.color = new Color(1, 1, 1, 0.6f);
+        yield return new WaitForSeconds(showTime);
+        sprite.color = Color.white;
+        yield return new WaitForSeconds(realTIme);
+        isInvisibility = false;
+
+    }
 
 }
