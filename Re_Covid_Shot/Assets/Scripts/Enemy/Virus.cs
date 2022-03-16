@@ -10,21 +10,16 @@ public class Virus : Enemy
         StartCoroutine(Attack());
     }
 
-    protected override void Update()
-    {
-        base.Update();
-    }
 
     protected override IEnumerator Attack()
     {
         Vector3 moveVec =  player.transform.position -  transform.position;
-        
 
         GameObject bullet =  Instantiate(base.bullet, transform.position, transform.rotation);
         Bullet bulletLogic = bullet.GetComponent<Bullet>();
 
+        bulletLogic.power = power;
         bulletLogic.moveVec = moveVec;
-
 
         yield return null;
         
