@@ -36,4 +36,13 @@ public class SystemManager : MonoBehaviour
             return gameManager;
         }
     }
+
+    [SerializeField] Player player;
+    public Player Player
+    {
+        get
+        {
+            return player;
+        }
+    }
 }

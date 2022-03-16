@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] int speed;
     public int power;
 
-    Vector3 moveVec;
+    public Vector3 moveVec;
 
     public enum BulletType
     {
@@ -21,23 +21,14 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        switch (myBullet)
-        {
-            case BulletType.Player:
-                moveVec = Vector3.up;
-                break;
-            case BulletType.Enemy:
-                moveVec = Vector3.down;
-                break;
-            default:
-                break;
-        }
+        if (myBullet == BulletType.Player)
+            moveVec = Vector3.up;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(moveVec);
         transform.Translate( moveVec * speed * Time.deltaTime);
     }
 

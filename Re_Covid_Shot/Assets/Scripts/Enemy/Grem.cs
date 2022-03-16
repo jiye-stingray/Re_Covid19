@@ -15,7 +15,11 @@ public class Grem : Enemy
         {
 
             GameObject bullet = Instantiate(base.bullet, transform.position, transform.rotation);
-            bullet.GetComponent<Bullet>().power = this.power;
+
+            Bullet bulletLogic = bullet.GetComponent<Bullet>();
+
+           bulletLogic.power = this.power;
+           bulletLogic.moveVec = Vector3.down;
 
 
             yield return new WaitForSeconds(0.5f);
