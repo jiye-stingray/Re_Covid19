@@ -5,16 +5,11 @@ using System.IO;
 
 public class SpawnPoints : MonoBehaviour
 {
-
     [SerializeField] Transform[] spawnPoints;
 
     [SerializeField] GameObject[] enemies;
 
     List<SpawnData> spawnList = new List<SpawnData>();
-
-    private void Awake()
-    {
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -102,4 +97,12 @@ public class SpawnPoints : MonoBehaviour
 
     }
 
+
+    IEnumerator SpawnNPC()
+    {
+        for (; ; )
+        {
+
+        }
+    }
 }
