@@ -15,7 +15,7 @@ public class NPC : MonoBehaviour
         transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
 
-    protected virtual void Dead()
+    protected void Dead()
     {
         Destroy(gameObject);
     }

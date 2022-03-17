@@ -1,20 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Boss : Enemy
 {
+
+    [SerializeField] int MaxHP;
     int attackIndex = 0;
 
     [SerializeField] GameObject spawnEnemy;
 
     [SerializeField] Transform[] spawnPos;
 
+    [SerializeField] Image HPBar;
 
     void Start()
     {
+        HP = MaxHP;
         isBoss = true;
         StartCoroutine(Showing());
+    }
+
+    protected override void Update()
+    {
+        HPBarShow();
+    }
+    void HPBarShow()
+    {
+        HPBar.fillAmount = (float)HP / MaxHP;
     }
 
     IEnumerator Showing()
@@ -26,6 +40,8 @@ public class Boss : Enemy
         CheckAttack();
 
     }
+
+   
 
     void CheckAttack()
     {

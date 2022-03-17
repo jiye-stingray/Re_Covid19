@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int hp;
+
     bool isGameOver;
 
+    private int hp;
     public int HP
     {
         get => hp;
@@ -20,7 +21,8 @@ public class GameManager : MonoBehaviour
         }
     }
     public const int MaxHP = 100;
-    public int pain;
+
+    private int pain;
     public int Pain
     {
         get => pain;
@@ -33,6 +35,8 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    public const int MaxPain = 100;
+
 
     void GameOver()
     {
@@ -40,7 +44,6 @@ public class GameManager : MonoBehaviour
         //∞‘¿” æ¿ ≥°
     }
 
-    public const int MaxPain = 100;
 
 
     // Start is called before the first frame update
