@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    public int speed;
+    public float speed;
     [SerializeField] protected GameObject bullet;
     public bool isBoss = true;
 

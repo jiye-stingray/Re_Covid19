@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     float xMove;
     float yMove;
-    [SerializeField] int speed;
+    [SerializeField] float speed;
     [SerializeField] bool isInvisibility;
 
     [SerializeField] float fireTimer;
