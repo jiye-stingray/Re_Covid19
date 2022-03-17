@@ -46,9 +46,9 @@ public class SpawnPoints : MonoBehaviour
 
             SpawnData spawnData = new SpawnData();
 
-            spawnData.type = line.Split(',')[0];
-            spawnData.pos = int.Parse(line.Split(',')[1]);
-            spawnData.delay = float.Parse(line.Split(',')[2]);
+            spawnData.Type = line.Split(',')[0];
+            spawnData.Pos   = int.Parse(line.Split(',')[1]);
+            spawnData.Delay = float.Parse(line.Split(',')[2]);
 
             spawnList.Add(spawnData);
 
@@ -91,12 +91,12 @@ public class SpawnPoints : MonoBehaviour
     {
         for (int i = 0; i < spawnList.Count; i++)
         {
-            GameObject enemy = ReturnEnemy(spawnList[i].type);
+            GameObject enemy = ReturnEnemy(spawnList[i].Type);
             Transform tramsform = spawnPoints[i];
 
             Instantiate(enemy, tramsform.position, tramsform.rotation);
 
-            yield return new WaitForSeconds(spawnList[i].delay);
+            yield return new WaitForSeconds(spawnList[i].Delay);
 
         }
 

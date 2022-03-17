@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpawnData
 {
-    public string type;
-    public int pos;
-    public float delay;
+    private string type;    public string Type { get; set; }
+    private int pos;        public int Pos { get; set; }
+    private float delay;    public float Delay { get; set; }   
 
 }

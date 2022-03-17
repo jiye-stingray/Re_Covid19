@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4186956899102368446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -149,4 +149,5 @@ MonoBehaviour:
   HP: 1
   speed: 3
   bullet: {fileID: 4735495705457096283, guid: ce206a7c64e6b224689179b162c663e7, type: 3}
+  isBoss: 1
   power: 6

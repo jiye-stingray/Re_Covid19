@@ -4,7 +4,20 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] int HP;
+    [SerializeField] int hp;
+    public int HP
+    {
+        get => hp;
+        set
+        {
+            hp = value;
+
+            if(hp <= 0)
+            {
+                Dead();
+            }
+        }
+    }
     public int speed;
     [SerializeField] protected GameObject bullet;
     public bool isBoss = true;
@@ -22,10 +35,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        if(HP <= 0)
-        {
-            Dead();
-        }
 
         transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
