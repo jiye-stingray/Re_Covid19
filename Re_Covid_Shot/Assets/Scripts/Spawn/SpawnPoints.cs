@@ -6,8 +6,14 @@ using System.IO;
 public class SpawnPoints : MonoBehaviour
 {
     [SerializeField] Transform[] spawnPoints;
+    //0. Red
+    //1. White
+    [SerializeField] GameObject[] NPCs;
+    [SerializeField] Transform[] redPostion;
+    [SerializeField] Transform[] whitePostion;
 
     [SerializeField] GameObject[] enemies;
+
 
     List<SpawnData> spawnList = new List<SpawnData>();
 
@@ -22,7 +28,8 @@ public class SpawnPoints : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CheckRed();
+        CheckWhite();
     }
 
     void SpawnPoint(string stageName)
@@ -97,12 +104,50 @@ public class SpawnPoints : MonoBehaviour
 
     }
 
-
-    IEnumerator SpawnNPC()
+    float redTimer;
+    void CheckRed()
     {
-        for (; ; )
+        redTimer = Time.deltaTime;
+        Debug.Log(redTimer);
+        if (redTimer >= 0.1f)    //등장 주기 
         {
 
+            RedSpawn();
+            redTimer = 0;
+            /*if (Random.Range(0, 1) == 0)     //등장 확률
+            {
+                Debug.Log("발사");
+                
+            }*/
         }
     }
+
+    private void RedSpawn()
+    {
+        Transform trans = redPostion[Random.Range(0, redPostion.Length)];
+
+        Instantiate(NPCs[0], trans.position, trans.rotation);
+    }
+
+    float whiteTime;
+    void CheckWhite()
+    {
+        whiteTime = Time.deltaTime;
+        if (whiteTime >= 3f)    //등장 주기 
+        {
+            if (Random.Range(0, 2) == 0)     //등장 확률
+            {
+                WhiteSpawn();
+                whiteTime = 0;
+            }
+        }
+    }
+
+    private void WhiteSpawn()
+    {
+        Transform trans = redPostion[Random.Range(0, redPostion.Length)];
+
+        Instantiate(NPCs[1], trans.position, trans.rotation);
+    }
+
 }

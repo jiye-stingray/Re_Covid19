@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
             {
                 GameOver();
             }
+            else if(hp >= 100)
+            {
+                hp = 100;
+            }
         }
     }
     public const int MaxHP = 100;
@@ -32,6 +36,10 @@ public class GameManager : MonoBehaviour
             if(pain >= 100 && !isGameOver)
             {
                 GameOver();
+            }
+            else if(pain < 0)
+            {
+                pain = 0;
             }
         }
     }
