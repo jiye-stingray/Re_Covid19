@@ -107,33 +107,30 @@ public class SpawnPoints : MonoBehaviour
     float redTimer;
     void CheckRed()
     {
-        redTimer = Time.deltaTime;
-        Debug.Log(redTimer);
-        if (redTimer >= 0.1f)    //등장 주기 
-        {
-
-            RedSpawn();
-            redTimer = 0;
-            /*if (Random.Range(0, 1) == 0)     //등장 확률
+        redTimer += Time.deltaTime;
+        if (redTimer >= 0.5f)    //등장 주기 
+        {            
+            if (Random.Range(0, 1) == 0)     //등장 확률
             {
-                Debug.Log("발사");
-                
-            }*/
+
+                RedSpawn();
+                redTimer = 0;
+
+            }
         }
     }
 
     private void RedSpawn()
     {
         Transform trans = redPostion[Random.Range(0, redPostion.Length)];
-
         Instantiate(NPCs[0], trans.position, trans.rotation);
     }
 
     float whiteTime;
     void CheckWhite()
     {
-        whiteTime = Time.deltaTime;
-        if (whiteTime >= 3f)    //등장 주기 
+        whiteTime += Time.deltaTime;
+        if (whiteTime >= 0.5f)    //등장 주기 
         {
             if (Random.Range(0, 2) == 0)     //등장 확률
             {
@@ -145,7 +142,7 @@ public class SpawnPoints : MonoBehaviour
 
     private void WhiteSpawn()
     {
-        Transform trans = redPostion[Random.Range(0, redPostion.Length)];
+        Transform trans = whitePostion[Random.Range(0, redPostion.Length)];
 
         Instantiate(NPCs[1], trans.position, trans.rotation);
     }
