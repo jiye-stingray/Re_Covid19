@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-                gameManager.HP -= (int)(enemy.power * 0.5f);
+                gameManager.HP -= Mathf.Max(0, (int)(enemy.power * 0.5f));
                 StartCoroutine(Invisibility(1.5f, 1.5f));
 
             }

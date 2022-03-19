@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 
     bool isGameOver;
 
-    private int hp;
+    [SerializeField] private int hp;
     public int HP
     {
         get => hp;
@@ -26,14 +26,14 @@ public class GameManager : MonoBehaviour
     }
     public const int MaxHP = 100;
 
-    private int pain;
+    [SerializeField] private int pain;
     public int Pain
     {
         get => pain;
         set
         {
             pain = value;
-            if(pain >= 100 && !isGameOver)
+            if(pain >= MaxPain && !isGameOver)
             {
                 GameOver();
             }
@@ -51,7 +51,6 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
         //∞‘¿” æ¿ ≥°
     }
-
 
 
     // Start is called before the first frame update
