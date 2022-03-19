@@ -450,7 +450,7 @@ MonoBehaviour:
   - {fileID: 2131347812}
   - {fileID: 1321292516}
   - {fileID: 529831750}
-  score:
+  scores:
   - {fileID: 1882168855}
   - {fileID: 624783263}
   - {fileID: 19931122}

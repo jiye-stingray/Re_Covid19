@@ -661,7 +661,7 @@ MonoBehaviour:
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 2
+  m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &509704022
@@ -1576,6 +1576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   pain: 0
+  score: 0
 --- !u!4 &1580745362
 Transform:
   m_ObjectHideFlags: 0
@@ -2161,7 +2162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6801285801019476954, guid: a924c3f5c7480d948a1680c0b3b54b46, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6801285801019476957, guid: a924c3f5c7480d948a1680c0b3b54b46, type: 3}
       propertyPath: m_RootOrder

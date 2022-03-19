@@ -8,12 +8,17 @@ public class RankingSet : MonoBehaviour
     [SerializeField] TMP_Text[] names;
     [SerializeField] TMP_Text[] scores;
 
+    int score;
+    string userName;
+
     List<Rank> rankingList = new List<Rank>();
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        score = SystemManager.Instance.GameManager.score;
+
+        RankingSeting("jiye", 20);
     }
 
     // Update is called once per frame
