@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
         //∞‘¿” æ¿ ≥°
+        SceneManager.LoadScene("GameOverScene");
     }
 
 

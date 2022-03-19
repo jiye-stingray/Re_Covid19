@@ -17,14 +17,26 @@ public class RankingSet : MonoBehaviour
     void Start()
     {
         score = SystemManager.Instance.GameManager.score;
-
-        RankingSeting("jiye", 20);
+        CheckScore();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void CheckScore()
+    {
+        if(score >= rankingList[4].score)
+        {
+
+        }
+    }
+
+    private void InputID()
+    {
+
     }
 
     void RankingSeting(string name, int score)
