@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
 
     public int score;
 
-    void GameOver()
+    public void GameOver()
     {
         Debug.Log("게임 끝");
         isGameOver = true;
@@ -67,9 +67,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         HP = MaxHP;
-        //임시
-        /*score = 20;
-        HP = 0;*/
 
         pain = (int)(MaxPain * 0.2f);
     }

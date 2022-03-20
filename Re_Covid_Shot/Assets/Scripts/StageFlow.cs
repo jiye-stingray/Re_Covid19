@@ -29,7 +29,7 @@ public class StageFlow : MonoBehaviour
         Debug.Log("종료");
         if(stageCount >= 2)
         {
-            Debug.Log("게임 클리어");
+            SystemManager.Instance.GameManager.GameOver();
         }
         else
         {
