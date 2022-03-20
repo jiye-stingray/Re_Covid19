@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
 
     bool isGameOver = false;
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("GameOverScene");
     }
 
-    void Awake()
+    public override void Awake()
     {
         if (FindObjectsOfType<GameManager>().Length > 1)
             Destroy(gameObject);

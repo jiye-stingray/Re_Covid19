@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
             if (isBoss)
                 return;
 
-            //SystemManager.Instance.GameManager.Pain += (int)(power * 0.5f);
+            GameManager.Instance.Pain += (int)(power * 0.5f);
 
             Dead();
         }

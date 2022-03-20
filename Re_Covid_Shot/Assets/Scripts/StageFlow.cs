@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StageFlow : MonoBehaviour
+public class StageFlow : Singleton<StageFlow>
 {
     int stageCount = 1;
-    // Start is called before the first frame update
+
+    public override void Awake()
+    {
+    }
+
     void Start()
     {
         StartStage();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
     }
 
     void StartStage()
@@ -29,7 +31,7 @@ public class StageFlow : MonoBehaviour
         Debug.Log("Á¾·á");
         if(stageCount >= 2)
         {
-            //SystemManager.Instance.GameManager.GameOver();
+            GameManager.Instance.GameOver();
         }
         else
         {

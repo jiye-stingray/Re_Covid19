@@ -11,7 +11,7 @@ public class RankingSet : MonoBehaviour
     [SerializeField] GameObject InputPanel;
     [SerializeField] TMP_InputField input;
 
-    int score;
+    private int score = 0;
     string ID;
 
     List<Rank> rankingList = new List<Rank>();
@@ -24,7 +24,7 @@ public class RankingSet : MonoBehaviour
     void Start()
     {
         InputPanel.SetActive(false);
-        //score = SystemManager.Instance.GameManager.score;
+        score = GameManager.Instance.score;
         CheckScore();
     }
 
