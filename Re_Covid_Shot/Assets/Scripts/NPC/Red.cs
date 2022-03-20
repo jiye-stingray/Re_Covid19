@@ -8,7 +8,7 @@ public class Red : NPC
 
     protected override void Use()
     {
-        SystemManager.Instance.GameManager.Pain += increseAmount;
+        //SystemManager.Instance.GameManager.Pain += increseAmount;
         base.Use();
     }
 }

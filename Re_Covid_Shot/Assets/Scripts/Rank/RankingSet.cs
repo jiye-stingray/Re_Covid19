@@ -16,11 +16,15 @@ public class RankingSet : MonoBehaviour
 
     List<Rank> rankingList = new List<Rank>();
 
+    private void Awake()
+    {
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         InputPanel.SetActive(false);
-        score = SystemManager.Instance.GameManager.score;
+        //score = SystemManager.Instance.GameManager.score;
         CheckScore();
     }
 
@@ -32,10 +36,10 @@ public class RankingSet : MonoBehaviour
 
     private void CheckScore()
     {
-        if(rankingList.Count < 5 || score >= rankingList[4].score)
+        if (rankingList.Count < 5 || score >= rankingList[4].score)
         {
             InputID();
-            
+
         }
     }
 

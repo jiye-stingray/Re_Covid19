@@ -20,7 +20,7 @@ public class StageFlow : MonoBehaviour
     void StartStage()
     {
         string stageName = "stage" + stageCount.ToString();
-        SystemManager.Instance.SpawnPoints.SpawnPoint(stageName);
+        //SystemManager.Instance.SpawnPoints.SpawnPoint(stageName);
     }
 
 
@@ -29,7 +29,7 @@ public class StageFlow : MonoBehaviour
         Debug.Log("Á¾·á");
         if(stageCount >= 2)
         {
-            SystemManager.Instance.GameManager.GameOver();
+            //SystemManager.Instance.GameManager.GameOver();
         }
         else
         {

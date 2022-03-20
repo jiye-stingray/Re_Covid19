@@ -15,7 +15,7 @@ public class UIController : MonoBehaviour
     [SerializeField] TMP_Text scoreText;
 
 
-    GameManager gameManager => SystemManager.Instance.GameManager;
+    //GameManager gameManager => SystemManager.Instance.GameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +25,12 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "score: " + gameManager.score.ToString();
+        //scoreText.text = "score: " + gameManager.score.ToString();
 
-        HPText.text = gameManager.HP.ToString();
-        painText.text = gameManager.Pain.ToString();
+        //HPText.text = gameManager.HP.ToString();
+        //painText.text = gameManager.Pain.ToString();
 
-        HPImg.fillAmount = (float)gameManager.HP / GameManager.MaxHP;
-        painImg.fillAmount = (float)gameManager.Pain / GameManager.MaxPain;
+        //HPImg.fillAmount = (float)gameManager.HP / GameManager.MaxHP;
+        //painImg.fillAmount = (float)gameManager.Pain / GameManager.MaxPain;
     }
 }

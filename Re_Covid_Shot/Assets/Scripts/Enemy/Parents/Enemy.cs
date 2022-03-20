@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] int score;
 
-    public Player player => SystemManager.Instance.Player;
+    //public Player player => SystemManager.Instance.Player;
 
     // Start is called before the first frame update
     void Start()
@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
             if (isBoss)
                 return;
 
-            SystemManager.Instance.GameManager.Pain += (int)(power * 0.5f);
+            //SystemManager.Instance.GameManager.Pain += (int)(power * 0.5f);
 
             Dead();
         }

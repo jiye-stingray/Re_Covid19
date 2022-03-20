@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    protected GameManager gameManager => SystemManager.Instance.GameManager;
+    //protected GameManager gameManager => SystemManager.Instance.GameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,6 @@ public class Item : MonoBehaviour
     public virtual void Use()
     {
 
-        gameManager.itemCount++;
         Dead();
     }
 

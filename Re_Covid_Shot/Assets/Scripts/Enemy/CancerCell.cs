@@ -13,12 +13,12 @@ public class CancerCell : Enemy
     {
         for (int i = 0; i < 5; i++)
         {
-            Vector3 moveVec = player.transform.position - transform.position;
+            //Vector3 moveVec = player.transform.position - transform.position;
 
             GameObject bullet = Instantiate(base.bullet, transform.position, transform.rotation);
             Bullet bulletLogic = bullet.GetComponent<Bullet>();
 
-            bulletLogic.moveVec = moveVec;
+            //bulletLogic.moveVec = moveVec;
             bulletLogic.power = power;
 
             yield return new WaitForSeconds(1f);

@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         get => pain;
         set
         {
-            pain = value;
+                    pain = value;
             if(pain >= MaxPain && !isGameOver)
             {
                 GameOver();
@@ -50,6 +50,9 @@ public class GameManager : MonoBehaviour
 
     public int score;
 
+     public List<Rank> rankingList = new List<Rank>();
+
+
     public void GameOver()
     {
         Debug.Log("∞‘¿” ≥°");
@@ -60,7 +63,10 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (FindObjectsOfType<GameManager>().Length > 1)
+            Destroy(gameObject);
+        else
+            DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
@@ -76,4 +82,5 @@ public class GameManager : MonoBehaviour
     {
 
     }
+
 }
