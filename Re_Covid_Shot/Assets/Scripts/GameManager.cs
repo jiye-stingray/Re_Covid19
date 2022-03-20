@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
             {
                 GameOver();
             }
-            else if(pain < 0)
+            else if(pain <= 0)
             {
                 pain = 0;
             }
@@ -66,10 +66,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //HP = MaxHP;
+        HP = MaxHP;
         //юс╫ц
-        score = 20;
-        HP = 0;
+        /*score = 20;
+        HP = 0;*/
 
         pain = (int)(MaxPain * 0.2f);
     }

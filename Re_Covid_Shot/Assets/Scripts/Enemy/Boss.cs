@@ -119,5 +119,12 @@ public class Boss : Enemy
         CheckAttack();
     }
 
+    protected override void Dead()
+    {
 
+        //∞‘¿” ≥°
+        SystemManager.Instance.StageFlow.EndStage();
+
+        base.Dead();
+    }
 }

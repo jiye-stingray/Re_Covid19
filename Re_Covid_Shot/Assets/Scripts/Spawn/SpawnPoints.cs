@@ -13,26 +13,27 @@ public class SpawnPoints : MonoBehaviour
     [SerializeField] Transform[] whitePostion;
 
     [SerializeField] GameObject[] enemies;
+    [SerializeField] GameObject boss;
 
+    public bool showingBoss;
 
     List<SpawnData> spawnList = new List<SpawnData>();
 
     // Start is called before the first frame update
     void Start()
     {
-        SpawnPoint("stage1");
+        //SpawnPoint("stage1");
 
-        StartCoroutine(SpawnEnemy());
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckRed();
-        CheckWhite();
+        /*CheckRed();
+        CheckWhite();*/
     }
 
-    void SpawnPoint(string stageName)
+    public void SpawnPoint(string stageName)
     {
         spawnList.Clear();
 
@@ -58,6 +59,7 @@ public class SpawnPoints : MonoBehaviour
 
         stringReader.Close();
 
+        StartCoroutine(SpawnEnemy());
 
     }
 
@@ -102,11 +104,17 @@ public class SpawnPoints : MonoBehaviour
 
         }
 
+        yield return new WaitForSeconds(1f);
+        Instantiate(boss);
+        
     }
 
     float redTimer;
     void CheckRed()
     {
+        if (showingBoss)
+            return;
+
         redTimer += Time.deltaTime;
         if (redTimer >= 0.5f)    //등장 주기 
         {            
@@ -129,6 +137,9 @@ public class SpawnPoints : MonoBehaviour
     float whiteTime;
     void CheckWhite()
     {
+        if (showingBoss)
+            return;
+
         whiteTime += Time.deltaTime;
         if (whiteTime >= 0.5f)    //등장 주기 
         {

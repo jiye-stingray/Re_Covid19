@@ -15,8 +15,6 @@ public class SystemManager : MonoBehaviour
     
     }
 
-
-
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -44,6 +42,24 @@ public class SystemManager : MonoBehaviour
         get
         {
             return player;
+        }
+    }
+
+    [SerializeField] SpawnPoints spawnPoints;
+    public SpawnPoints SpawnPoints
+    {
+        get
+        {
+            return spawnPoints;
+        }
+    }
+
+    [SerializeField] StageFlow stageFlow;
+    public StageFlow StageFlow
+    {
+        get
+        {
+            return stageFlow;
         }
     }
 }

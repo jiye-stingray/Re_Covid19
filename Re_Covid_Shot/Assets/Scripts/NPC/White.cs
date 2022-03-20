@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class White : NPC
 {
-    [SerializeField] GameObject[] items;
+    //[SerializeField] GameObject[] items;
 
     protected override void Use()
     {
