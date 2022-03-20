@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
 
     public int power;
 
+    [SerializeField] int score;
+
     public Player player => SystemManager.Instance.Player;
 
     // Start is called before the first frame update

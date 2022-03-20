@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
     }
     public const int MaxPain = 100;
 
+    public int itemCount;
+
     public int score;
 
     void GameOver()

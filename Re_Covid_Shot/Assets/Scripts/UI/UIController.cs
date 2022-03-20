@@ -12,6 +12,9 @@ public class UIController : MonoBehaviour
     [SerializeField] Image HPImg;
     [SerializeField] Image painImg;
 
+    [SerializeField] TMP_Text scoreText;
+
+
     GameManager gameManager => SystemManager.Instance.GameManager;
 
     // Start is called before the first frame update
@@ -22,6 +25,8 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        scoreText.text = "score: " + gameManager.score.ToString();
+
         HPText.text = gameManager.HP.ToString();
         painText.text = gameManager.Pain.ToString();
 
