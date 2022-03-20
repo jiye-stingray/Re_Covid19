@@ -723,6 +723,8 @@ MonoBehaviour:
   - {fileID: 19931122}
   - {fileID: 747260332}
   - {fileID: 1111612135}
+  InputPanel: {fileID: 161760668}
+  input: {fileID: 1345178637}
 --- !u!4 &476309888
 Transform:
   m_ObjectHideFlags: 0
@@ -2235,7 +2237,7 @@ GameObject:
   - component: {fileID: 1511899896}
   - component: {fileID: 1511899895}
   m_Layer: 5
-  m_Name: Button
+  m_Name: InputButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2305,7 +2307,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1511899896}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 476309887}
+        m_TargetAssemblyTypeName: RankingSet, Assembly-CSharp
+        m_MethodName: InputBtnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1511899896
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    bool isGameOver;
+    bool isGameOver = false;
 
     [SerializeField] private int hp;
     public int HP
@@ -50,16 +50,25 @@ public class GameManager : MonoBehaviour
 
     void GameOver()
     {
+        Debug.Log("게임 끝");
         isGameOver = true;
         //게임 씬 끝
         SceneManager.LoadScene("GameOverScene");
     }
 
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        HP = MaxHP;
+        //HP = MaxHP;
+        //임시
+        score = 20;
+        HP = 0;
+
         pain = (int)(MaxPain * 0.2f);
     }
 

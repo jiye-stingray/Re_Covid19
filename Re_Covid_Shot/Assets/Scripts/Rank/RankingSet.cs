@@ -8,14 +8,18 @@ public class RankingSet : MonoBehaviour
     [SerializeField] TMP_Text[] names;
     [SerializeField] TMP_Text[] scores;
 
+    [SerializeField] GameObject InputPanel;
+    [SerializeField] TMP_InputField input;
+
     int score;
-    string userName;
+    string ID;
 
     List<Rank> rankingList = new List<Rank>();
 
     // Start is called before the first frame update
     void Start()
     {
+        InputPanel.SetActive(false);
         score = SystemManager.Instance.GameManager.score;
         CheckScore();
     }
@@ -28,15 +32,27 @@ public class RankingSet : MonoBehaviour
 
     private void CheckScore()
     {
-        if(score >= rankingList[4].score)
+        if(rankingList.Count < 5 || score >= rankingList[4].score)
         {
-
+            InputID();
+            
         }
     }
 
     private void InputID()
     {
+        InputPanel.SetActive(true);
+        
+    }
 
+    /// <summary>
+    /// 아이디 입력 받는 버튼
+    /// </summary>
+    public void InputBtnClick()
+    {
+        ID = input.text;
+        InputPanel.SetActive(false);
+        RankingSeting(ID, score);
     }
 
     void RankingSeting(string name, int score)

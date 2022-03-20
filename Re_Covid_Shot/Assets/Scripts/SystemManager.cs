@@ -19,6 +19,7 @@ public class SystemManager : MonoBehaviour
 
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         if (instance != null)
         {
             Debug.LogError("instance error");
