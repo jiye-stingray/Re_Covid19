@@ -18,6 +18,7 @@ public class CheatController : Singleton<CheatController>
     {
         InvisibilityTrue();
         InvisbilityFalse();
+        AllEnemyDead();
     }
 
     private void MoveStage()
@@ -37,7 +38,6 @@ public class CheatController : Singleton<CheatController>
 
         if (Input.GetKeyDown(KeyCode.I))
         {
-            Debug.Log("公利");
             isInvisbilityCheat = true;
             player.isInvisibility = true;
         }
@@ -47,14 +47,21 @@ public class CheatController : Singleton<CheatController>
     {
         if (Input.GetKeyDown(KeyCode.O) && isInvisbilityCheat)
         {
-            Debug.Log("公利 秒家");
             player.isInvisibility = false;
         }
     }
 
     private void AllEnemyDead()
     {
-
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                Enemy enemyLogic = enemies[i].GetComponent<Enemy>();
+                enemyLogic.Dead();
+            }
+        }
     }
 
     private void ChangeHP()

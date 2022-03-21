@@ -119,7 +119,7 @@ public class Boss : Enemy
         CheckAttack();
     }
 
-    protected override void Dead()
+    public override void Dead()
     {
 
         //∞‘¿” ≥°

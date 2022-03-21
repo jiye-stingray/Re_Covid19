@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
 
-    protected virtual void Dead()
+    public virtual void Dead()
     {
         Destroy(gameObject);
     }
