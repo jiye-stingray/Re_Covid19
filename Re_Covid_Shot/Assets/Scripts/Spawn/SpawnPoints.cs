@@ -126,7 +126,7 @@ public class SpawnPoints : Singleton<SpawnPoints>
         }
     }
 
-    private void RedSpawn()
+    public void RedSpawn()
     {
         Transform trans = redPostion[Random.Range(0, redPostion.Length)];
         Instantiate(NPCs[0], trans.position, trans.rotation);
@@ -149,7 +149,7 @@ public class SpawnPoints : Singleton<SpawnPoints>
         }
     }
 
-    private void WhiteSpawn()
+    public void WhiteSpawn()
     {
         Transform trans = whitePostion[Random.Range(0, redPostion.Length)];
 

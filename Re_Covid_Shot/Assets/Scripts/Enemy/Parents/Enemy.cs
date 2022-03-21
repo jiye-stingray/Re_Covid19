@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Dead()
     {
+        GameManager.Instance.score += score;
         Destroy(gameObject);
     }
 

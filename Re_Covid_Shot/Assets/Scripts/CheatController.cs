@@ -19,6 +19,8 @@ public class CheatController : Singleton<CheatController>
         InvisibilityTrue();
         InvisbilityFalse();
         AllEnemyDead();
+        SpawnRed();
+        SpawnWhite();
     }
 
     private void MoveStage()
@@ -28,7 +30,7 @@ public class CheatController : Singleton<CheatController>
 
     private void PowerUP()
     {
-
+        
     }
 
     public bool isInvisbilityCheat;
@@ -76,11 +78,17 @@ public class CheatController : Singleton<CheatController>
 
     private void SpawnRed()
     {
-
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            SpawnPoints.Instance.RedSpawn();
+        }
     }
 
     private void SpawnWhite()
     {
-
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            SpawnPoints.Instance.WhiteSpawn();
+        }
     }
 }
