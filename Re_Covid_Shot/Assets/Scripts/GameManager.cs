@@ -75,6 +75,7 @@ public class GameManager : Singleton<GameManager>
     {
         HP = MaxHP;
         pain = (int)(MaxPain * 0.2f);
+        score = 0;
     }
 
 }
