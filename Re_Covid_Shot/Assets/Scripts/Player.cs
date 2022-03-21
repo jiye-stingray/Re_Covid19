@@ -18,7 +18,20 @@ public class Player : Singleton<Player>
     SpriteRenderer sprite;
 
     [SerializeField] GameObject[] bullets;
-    public int bulletLevel;
+    private int bulletLevel;
+    public int BulletLevel
+    {
+        get => bulletLevel;
+        set
+        {
+            bulletLevel = value;
+            if (bulletLevel > 5)
+                bulletLevel = 5;
+            else if (bulletLevel < 0)
+                bulletLevel = 0;
+        }
+    }
+
 
     public override void Awake()
     {
