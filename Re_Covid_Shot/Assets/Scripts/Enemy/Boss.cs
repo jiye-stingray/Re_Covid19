@@ -123,7 +123,7 @@ public class Boss : Enemy
     {
 
         //∞‘¿” ≥°
-        //SystemManager.Instance.StageFlow.EndStage();
+        StageFlow.Instance.EndStage();
 
         base.Dead();
     }

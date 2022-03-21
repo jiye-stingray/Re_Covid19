@@ -21,8 +21,11 @@ public class StageFlow : Singleton<StageFlow>
 
     void StartStage()
     {
+        if (stageCount == 1)
+            GameManager.Instance.Init();
+            
         string stageName = "stage" + stageCount.ToString();
-        //SystemManager.Instance.SpawnPoints.SpawnPoint(stageName);
+        SpawnPoints.Instance.SpawnPoint(stageName);
     }
 
 

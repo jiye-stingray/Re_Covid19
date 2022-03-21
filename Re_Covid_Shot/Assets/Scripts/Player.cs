@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Singleton<Player>
 {
     float xMove;
     float yMove;
@@ -20,8 +20,9 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject[] bullets;
     public int bulletLevel;
 
-    void Awake()
+    public override void Awake()
     {
+        base.Awake();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
     }

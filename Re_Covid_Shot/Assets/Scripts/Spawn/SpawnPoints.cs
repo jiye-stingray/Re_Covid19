@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class SpawnPoints : MonoBehaviour
+public class SpawnPoints : Singleton<SpawnPoints>
 {
     [SerializeField] Transform[] spawnPoints;
     //0. Red
@@ -18,8 +18,6 @@ public class SpawnPoints : MonoBehaviour
     public bool showingBoss;
 
     List<SpawnData> spawnList = new List<SpawnData>();
-
-    // Start is called before the first frame update
     void Start()
     {
         //SpawnPoint("stage1");

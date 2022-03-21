@@ -14,21 +14,17 @@ public class RankingSet : MonoBehaviour
     private int score = 0;
     string ID;
 
-    List<Rank> rankingList = new List<Rank>();
+    List<Rank> rankingList = GameManager.Instance.rankingList;
 
     private void Awake()
     {
     }
-
-    // Start is called before the first frame update
     void Start()
     {
         InputPanel.SetActive(false);
         score = GameManager.Instance.score;
         CheckScore();
     }
-
-    // Update is called once per frame
     void Update()
     {
         

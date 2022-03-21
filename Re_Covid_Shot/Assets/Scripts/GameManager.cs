@@ -61,26 +61,20 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene("GameOverScene");
     }
 
-    public override void Awake()
-    {
-        if (FindObjectsOfType<GameManager>().Length > 1)
-            Destroy(gameObject);
-        else
-            DontDestroyOnLoad(gameObject);
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
-        HP = MaxHP;
 
-        pain = (int)(MaxPain * 0.2f);
     }
 
-    // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void Init()
+    {
+        HP = MaxHP;
+        pain = (int)(MaxPain * 0.2f);
     }
 
 }

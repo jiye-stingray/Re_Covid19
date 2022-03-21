@@ -18,14 +18,12 @@ public class Bullet : MonoBehaviour
 
     public BulletType myBullet;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (myBullet == BulletType.Player)
             moveVec = Vector3.up;
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.Translate( moveVec * speed * Time.deltaTime);
