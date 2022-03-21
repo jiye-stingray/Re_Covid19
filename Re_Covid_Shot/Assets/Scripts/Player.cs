@@ -7,7 +7,7 @@ public class Player : Singleton<Player>
     float xMove;
     float yMove;
     [SerializeField] float speed;
-    [SerializeField] bool isInvisibility;
+    public bool isInvisibility;
 
     [SerializeField] float fireTimer;
     [SerializeField] float fireDelay;
@@ -36,8 +36,8 @@ public class Player : Singleton<Player>
     // Update is called once per frame
     void Update()
     {
-        
         FireCheck();
+        ShowInvisibility();
 
     }
 
@@ -83,6 +83,14 @@ public class Player : Singleton<Player>
 
     }
 
+    void ShowInvisibility()
+    {
+        if(isInvisibility)
+            sprite.color = new Color(1, 1, 1, 0.6f);
+        else
+            sprite.color = Color.white;
+
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -116,8 +124,10 @@ public class Player : Singleton<Player>
     /// <returns></returns>
     IEnumerator Invisibility(float showTime, float realTIme)
     {
+        if (CheatController.Instance.isInvisbilityCheat)
+            yield break;
+
         isInvisibility = true;
-        sprite.color = new Color(1, 1, 1, 0.6f);
         yield return new WaitForSeconds(showTime);
         sprite.color = Color.white;
         yield return new WaitForSeconds(realTIme);

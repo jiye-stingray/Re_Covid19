@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  power: 100
+  power: 1
   moveVec: {x: 0, y: 0, z: 0}
   myBullet: 0
 --- !u!1 &5418033689489851695
