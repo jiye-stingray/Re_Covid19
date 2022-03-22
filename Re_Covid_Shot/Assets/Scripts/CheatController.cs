@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CheatController : Singleton<CheatController>
 {
+    [SerializeField] GameObject CheatPanel;
     GameManager gameManager => GameManager.Instance;
     Player player => Player.Instance;
 

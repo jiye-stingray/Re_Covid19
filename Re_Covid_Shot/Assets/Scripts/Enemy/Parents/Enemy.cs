@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
             if(bullet.myBullet == Bullet.BulletType.Player)
             {
-                HP -= bullet.power;
+                HP -= Mathf.Max(0,bullet.power);
             }
         }
         else if (collision.gameObject.CompareTag("Wall"))
@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
             if (isBoss)
                 return;
 
-            GameManager.Instance.Pain += (int)(power * 0.5f);
+            GameManager.Instance.Pain += Mathf.Min((int)(power * 0.5f),100);
 
             Dead();
         }

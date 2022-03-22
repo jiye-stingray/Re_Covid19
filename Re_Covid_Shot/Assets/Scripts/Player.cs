@@ -121,7 +121,7 @@ public class Player : Singleton<Player>
                 Bullet bullet = collision.gameObject.GetComponent<Bullet>();
                 if(bullet.myBullet == Bullet.BulletType.Enemy)
                 {
-                    gameManager.HP -= bullet.power;
+                    gameManager.HP -= Mathf.Max(0,(int)(bullet.power));
                 }
             }
         }
