@@ -104,7 +104,7 @@ public class SpawnPoints : Singleton<SpawnPoints>
         
     }
 
-    float redTimer;
+    public float redTimer;
     void CheckRed()
     {
         if (showingBoss)
@@ -112,14 +112,13 @@ public class SpawnPoints : Singleton<SpawnPoints>
 
         redTimer += Time.deltaTime;
         if (redTimer >= 0.5f)    //등장 주기 
-        {            
+        {
+
             if (Random.Range(0, 10) == 0)     //등장 확률
             {
-
                 RedSpawn();
-                redTimer = 0;
-
             }
+            redTimer = 0;
         }
     }
 
@@ -141,8 +140,8 @@ public class SpawnPoints : Singleton<SpawnPoints>
             if (Random.Range(0, 10) == 0)     //등장 확률
             {
                 WhiteSpawn();
-                whiteTime = 0;
             }
+            whiteTime = 0;
         }
     }
 
