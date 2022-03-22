@@ -22,7 +22,7 @@ public class RankingSet : MonoBehaviour
     void Start()
     {
         InputPanel.SetActive(false);
-        score = GameManager.Instance.score;
+        score = GameManager.Instance.totalScore;
         CheckScore();
     }
     void Update()

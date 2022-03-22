@@ -51,7 +51,6 @@ public class Enemy : MonoBehaviour
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
             if(bullet.myBullet == Bullet.BulletType.Player)
             {
-                GameManager.Instance.score += score;
                 HP -= Mathf.Max(0,bullet.power);
             }
         }
@@ -64,9 +63,9 @@ public class Enemy : MonoBehaviour
 
             Dead();
         }
-        else if (collision.gameObject.CompareTag("Player"))
+        else if (collision.gameObject.CompareTag("Player"))     //플레이어에게 죽었을 때
         {
-            GameManager.Instance.score += score;
+            GameManager.Instance.enemyScore += score;
             Dead();
         }
 

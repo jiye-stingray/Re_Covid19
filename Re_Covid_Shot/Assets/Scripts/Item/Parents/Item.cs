@@ -20,7 +20,7 @@ public class Item : MonoBehaviour
 
     public virtual void Use()
     {
-
+        GameManager.Instance.itemCountScore += 10;
         Dead();
     }
 

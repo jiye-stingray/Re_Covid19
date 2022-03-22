@@ -5,6 +5,7 @@ using UnityEngine;
 public class StageFlow : Singleton<StageFlow>
 {
     int stageCount = 1;
+    GameManager gameManager => GameManager.Instance;
 
     public override void Awake()
     {
@@ -30,8 +31,8 @@ public class StageFlow : Singleton<StageFlow>
 
     public void EndStage()
     {
-        Debug.Log("Á¾·á");
-        if(stageCount >= 2)
+        StageBonusScoreCheck();
+        if (stageCount >= 2)
         {
             GameManager.Instance.GameOver();
         }
@@ -40,6 +41,12 @@ public class StageFlow : Singleton<StageFlow>
             stageCount++;
             StartStage();
         }
+    }
+
+    private void StageBonusScoreCheck()
+    {
+        gameManager.stageScore += gameManager.HP;
+        gameManager.stageScore += GameManager.MaxPain - gameManager.Pain;
     }
 
 }

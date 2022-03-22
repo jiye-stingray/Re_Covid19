@@ -15,11 +15,11 @@ public class GameManager : Singleton<GameManager>
         set
         {
             hp = value;
-            if(hp <= 0 && !isGameOver)
+            if (hp <= 0 && !isGameOver)
             {
                 GameOver();
             }
-            else if(hp >= 100)
+            else if (hp >= 100)
             {
                 hp = 100;
             }
@@ -35,11 +35,11 @@ public class GameManager : Singleton<GameManager>
         {
             pain = value;
 
-            if(pain >= MaxPain && !isGameOver)
+            if (pain >= MaxPain && !isGameOver)
             {
                 GameOver();
             }
-            else if(pain <= 0)
+            else if (pain <= 0)
             {
                 pain = 0;
             }
@@ -47,7 +47,8 @@ public class GameManager : Singleton<GameManager>
     }
     public const int MaxPain = 100;
 
-    public int score = 0;
+    public int totalScore = 0;
+    public int enemyScore = 0;
     public int itemCountScore = 0;
     public int stageScore = 0;
 
@@ -77,7 +78,9 @@ public class GameManager : Singleton<GameManager>
         isGameOver = false;
         HP = MaxHP;
         pain = (int)(MaxPain * 0.2f);
-        score = 0;
+        totalScore = 0;
+        enemyScore = 0;
+        itemCountScore = 0;
+        stageScore = 0;
     }
-
 }
