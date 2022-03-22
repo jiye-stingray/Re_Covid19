@@ -2925,6 +2925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35944158e72088e438a30493c51c9e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreCheckText: {fileID: 0}
 --- !u!4 &1661335603
 Transform:
   m_ObjectHideFlags: 0
@@ -3463,7 +3464,7 @@ GameObject:
   - component: {fileID: 2091504845}
   - component: {fileID: 2091504844}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ScoreCheckText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
