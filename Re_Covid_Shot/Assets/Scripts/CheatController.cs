@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CheatController : Singleton<CheatController>
 {
-    [SerializeField] GameObject CheatPanel;
+    [SerializeField] GameObject cheatPanel;
     GameManager gameManager => GameManager.Instance;
     Player player => Player.Instance;
 
-    // Start is called before the first frame update
+    [SerializeField] TMP_InputField stageInput;
+    [SerializeField] TMP_InputField HPInput;
+    [SerializeField] TMP_InputField painInput;
+
     void Start()
     {
-        
+        cheatPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -22,22 +26,17 @@ public class CheatController : Singleton<CheatController>
         AllEnemyDead();
         SpawnRed();
         SpawnWhite();
+        CheatPanelShow();
     }
-
-    private void MoveStage()
-    {
-
-    }
-
     private void PowerUP()
     {
         
     }
 
     public bool isInvisbilityCheat;
-    private void InvisibilityTrue()
+    void InvisibilityTrue()
     {
-
+        
 
         if (Input.GetKeyDown(KeyCode.I))
         {
@@ -67,16 +66,6 @@ public class CheatController : Singleton<CheatController>
         }
     }
 
-    private void ChangeHP()
-    {
-
-    }
-
-    private void ChangePain()
-    {
-
-    }
-
     private void SpawnRed()
     {
         if (Input.GetKeyDown(KeyCode.F))
@@ -91,5 +80,25 @@ public class CheatController : Singleton<CheatController>
         {
             SpawnPoints.Instance.WhiteSpawn();
         }
+    }
+
+    private void CheatPanelShow()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            cheatPanel.SetActive(true);
+            HPInput.text = "";
+            painInput.text = "";
+        }
+
+    }
+
+    public void InputValue()
+    {
+        if(HPInput.text != "")
+            GameManager.Instance.HP = int.Parse(HPInput.text);
+        if(painInput.text != "")
+            GameManager.Instance.Pain = int.Parse(painInput.text);
+        cheatPanel.SetActive(false);
     }
 }
