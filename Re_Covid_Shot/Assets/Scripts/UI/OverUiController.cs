@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class OverUiController : MonoBehaviour
+public class OverUIController: MonoBehaviour
 {
     void Start()
     {
@@ -22,6 +22,6 @@ public class OverUiController : MonoBehaviour
 
     public void GameOverBtnClick()
     {
-        SceneManager.LoadScene("StartGame");
+        SceneManager.LoadScene("StartScene");
     }
 }

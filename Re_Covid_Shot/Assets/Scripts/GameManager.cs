@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
 
-    bool isGameOver = false;
+    public bool isGameOver = false;
 
     [SerializeField] private int hp;
     public int HP
@@ -33,7 +33,8 @@ public class GameManager : Singleton<GameManager>
         get => pain;
         set
         {
-                    pain = value;
+            pain = value;
+
             if(pain >= MaxPain && !isGameOver)
             {
                 GameOver();
@@ -50,7 +51,7 @@ public class GameManager : Singleton<GameManager>
 
     public int score;
 
-     public List<Rank> rankingList = new List<Rank>();
+    public List<Rank> rankingList = new List<Rank>();
 
 
     public void GameOver()
@@ -73,6 +74,7 @@ public class GameManager : Singleton<GameManager>
 
     public void Init()
     {
+        isGameOver = false;
         HP = MaxHP;
         pain = (int)(MaxPain * 0.2f);
         score = 0;

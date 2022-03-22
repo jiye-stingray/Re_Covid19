@@ -14,7 +14,7 @@ public class RankingSet : MonoBehaviour
     private int score = 0;
     string ID;
 
-    List<Rank> rankingList = GameManager.Instance.rankingList;
+    List<Rank> rankingList => GameManager.Instance.rankingList;
 
     private void Awake()
     {
@@ -80,6 +80,7 @@ public class RankingSet : MonoBehaviour
             names[i].text = rankingList[i].name;
             scores[i].text = rankingList[i].score.ToString();
         }
+
     }
 
 }
