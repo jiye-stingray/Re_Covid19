@@ -20,15 +20,12 @@ public class SpawnPoints : Singleton<SpawnPoints>
     List<SpawnData> spawnList = new List<SpawnData>();
     void Start()
     {
-        //SpawnPoint("stage1");
-
     }
 
-    // Update is called once per frame
     void Update()
     {
-        /*CheckRed();
-        CheckWhite();*/
+        CheckRed();
+        CheckWhite();
     }
 
     public void SpawnPoint(string stageName)
@@ -116,7 +113,7 @@ public class SpawnPoints : Singleton<SpawnPoints>
         redTimer += Time.deltaTime;
         if (redTimer >= 0.5f)    //µîÀå ÁÖ±â 
         {            
-            if (Random.Range(0, 1) == 0)     //µîÀå È®·ü
+            if (Random.Range(0, 10) == 0)     //µîÀå È®·ü
             {
 
                 RedSpawn();
@@ -141,7 +138,7 @@ public class SpawnPoints : Singleton<SpawnPoints>
         whiteTime += Time.deltaTime;
         if (whiteTime >= 0.5f)    //µîÀå ÁÖ±â 
         {
-            if (Random.Range(0, 2) == 0)     //µîÀå È®·ü
+            if (Random.Range(0, 10) == 0)     //µîÀå È®·ü
             {
                 WhiteSpawn();
                 whiteTime = 0;
