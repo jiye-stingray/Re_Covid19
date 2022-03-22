@@ -47,9 +47,9 @@ public class GameManager : Singleton<GameManager>
     }
     public const int MaxPain = 100;
 
-    public int itemCount;
-
-    public int score;
+    public int score = 0;
+    public int itemCountScore = 0;
+    public int stageScore = 0;
 
     public List<Rank> rankingList = new List<Rank>();
 

@@ -28,7 +28,6 @@ public class StageFlow : Singleton<StageFlow>
         SpawnPoints.Instance.SpawnPoint(stageName);
     }
 
-
     public void EndStage()
     {
         Debug.Log("Á¾·á");

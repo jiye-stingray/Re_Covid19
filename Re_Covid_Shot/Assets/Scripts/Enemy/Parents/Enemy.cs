@@ -28,13 +28,6 @@ public class Enemy : MonoBehaviour
 
     public Player player => Player.Instance;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     protected virtual void Update()
     {
 
@@ -43,7 +36,6 @@ public class Enemy : MonoBehaviour
 
     public virtual void Dead()
     {
-        GameManager.Instance.score += score;
         Destroy(gameObject);
     }
 
@@ -59,6 +51,7 @@ public class Enemy : MonoBehaviour
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
             if(bullet.myBullet == Bullet.BulletType.Player)
             {
+                GameManager.Instance.score += score;
                 HP -= Mathf.Max(0,bullet.power);
             }
         }
@@ -73,6 +66,7 @@ public class Enemy : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Player"))
         {
+            GameManager.Instance.score += score;
             Dead();
         }
 

@@ -200,6 +200,7 @@ MonoBehaviour:
   - {fileID: 6266762803531552121, guid: bc0e81019f588b04482fa2d56cefa0fe, type: 3}
   boss: {fileID: 3165117566122348988, guid: 5fb6667bc192ef843a937b44809bf626, type: 3}
   showingBoss: 0
+  redTimer: 0
 --- !u!1 &164457781
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,6 +1758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDontDestroy: 1
+  isGameOver: 0
   hp: 0
   pain: 0
   itemCount: 0
