@@ -7,8 +7,12 @@ public class StageFlow : Singleton<StageFlow>
     int stageCount = 1;
     GameManager gameManager => GameManager.Instance;
 
+    [SerializeField] GameObject ImagePanel;
+    [SerializeField] Animator anim;
+
     public override void Awake()
     {
+        anim = ImagePanel.GetComponent<Animator>();
     }
 
     void Start()
@@ -24,7 +28,10 @@ public class StageFlow : Singleton<StageFlow>
     {
         if (stage == 1)
             GameManager.Instance.Init();
-            
+
+        anim.SetTrigger("isShow");
+
+
         string stageName = "stage" + stage.ToString();
         SpawnPoints.Instance.SpawnPoint(stageName);
     }
@@ -41,6 +48,8 @@ public class StageFlow : Singleton<StageFlow>
             stageCount++;
             StartStage(stageCount);
         }
+
+
     }
 
     private void StageBonusScoreCheck()
