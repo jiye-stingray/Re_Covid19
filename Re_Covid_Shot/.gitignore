@@ -60,4 +60,4 @@ crashlytics-build.properties
 
 
 * linguist-vendored
-*.cs linguist-vendored=false
+*.cs linguist-vendored=true
