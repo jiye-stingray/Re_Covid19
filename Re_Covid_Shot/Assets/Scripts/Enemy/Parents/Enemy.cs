@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Dead()
     {
+        GameManager.Instance.enemyScore += score;
         Destroy(gameObject);
     }
 
@@ -61,11 +62,10 @@ public class Enemy : MonoBehaviour
 
             GameManager.Instance.Pain += Mathf.Min((int)(power * 0.5f),100);
 
-            Dead();
+            Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("Player"))     //플레이어에게 죽었을 때
         {
-            GameManager.Instance.enemyScore += score;
             Dead();
         }
 

@@ -20,19 +20,8 @@ public class SpawnPoints : Singleton<SpawnPoints>
 
 
     List<SpawnData> spawnList = new List<SpawnData>();
-    void Start()
-    {
-
-    }
-
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StopCoroutine(SpawnCouroutine);
-            Debug.Log("스페이스 입력");
-        }
 
         CheckRed();
         CheckWhite();
@@ -41,12 +30,16 @@ public class SpawnPoints : Singleton<SpawnPoints>
 
     public void SpawnPoint(string stageName)
     {
+        //코루틴
         SpawnCouroutine = SpawnEnemy();
 
+        #region Parce
         spawnList.Clear();
 
         TextAsset textAsset = Resources.Load(stageName) as TextAsset;
         StringReader stringReader = new StringReader(textAsset.text);
+
+
 
         while (stringReader != null)
         {
@@ -67,9 +60,10 @@ public class SpawnPoints : Singleton<SpawnPoints>
 
         stringReader.Close();
 
+        #endregion
+
+
         StartCoroutine(SpawnCouroutine);
-
-
 
     }
 

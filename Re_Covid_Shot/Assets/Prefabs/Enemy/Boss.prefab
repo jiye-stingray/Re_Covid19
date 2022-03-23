@@ -254,7 +254,7 @@ MonoBehaviour:
   bullet: {fileID: 6571373484723584160, guid: 3e00a41f9ff6ca94d818a909ec69bf5a, type: 3}
   isBoss: 1
   power: 0
-  score: 0
+  score: 100
   MaxHP: 100
   spawnEnemy: {fileID: 686896630724272850, guid: cc69971ef5fc27a46a99ae8a8710e383, type: 3}
   spawnPos:

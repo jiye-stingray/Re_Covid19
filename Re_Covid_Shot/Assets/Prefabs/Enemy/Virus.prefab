@@ -151,4 +151,4 @@ MonoBehaviour:
   bullet: {fileID: 4735495705457096283, guid: ce206a7c64e6b224689179b162c663e7, type: 3}
   isBoss: 1
   power: 6
-  score: 0
+  score: 3

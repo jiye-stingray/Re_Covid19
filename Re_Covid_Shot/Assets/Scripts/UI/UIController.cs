@@ -22,7 +22,7 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
-        scoreText.text = "score: " + gameManager.totalScore.ToString();
+        scoreText.text = "score: " + gameManager.enemyScore.ToString();
 
         HPText.text = gameManager.HP.ToString();
         painText.text = gameManager.Pain.ToString();

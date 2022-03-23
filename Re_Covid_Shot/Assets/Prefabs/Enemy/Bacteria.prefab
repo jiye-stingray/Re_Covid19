@@ -136,8 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be62ae5328622504db3ad931a649e4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 3
+  hp: 0
   speed: 1
   bullet: {fileID: 0}
   isBoss: 1
   power: 2
+  score: 1

@@ -48,6 +48,7 @@ public class GameManager : Singleton<GameManager>
     public const int MaxPain = 100;
 
     public int totalScore = 0;
+    public int bonusScore;
     public int enemyScore = 0;
     public int itemCountScore = 0;
     public int stageScore = 0;
@@ -57,9 +58,9 @@ public class GameManager : Singleton<GameManager>
 
     public void GameOver()
     {
-        Debug.Log("게임 끝");
+        bonusScore = itemCountScore + stageScore;
+        totalScore = enemyScore + itemCountScore + stageScore;
         isGameOver = true;
-        //게임 씬 끝
         SceneManager.LoadScene("GameOverScene");
     }
 
