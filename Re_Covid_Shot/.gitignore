@@ -60,4 +60,5 @@ crashlytics-build.properties
 
 
 * linguist-vendored
-*.cs linguist-vendored=true
+*.c# linguist-vendored=true
+*.cs linguist-detectable=true
