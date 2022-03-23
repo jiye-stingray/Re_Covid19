@@ -13,19 +13,19 @@ public class StageFlow : Singleton<StageFlow>
 
     void Start()
     {
-        StartStage();
+        StartStage(stageCount);
     }
 
     void Update()
     {
     }
 
-    void StartStage()
+    void StartStage(int stage)
     {
-        if (stageCount == 1)
+        if (stage == 1)
             GameManager.Instance.Init();
             
-        string stageName = "stage" + stageCount.ToString();
+        string stageName = "stage" + stage.ToString();
         SpawnPoints.Instance.SpawnPoint(stageName);
     }
 
@@ -39,7 +39,7 @@ public class StageFlow : Singleton<StageFlow>
         else
         {
             stageCount++;
-            StartStage();
+            StartStage(stageCount);
         }
     }
 
@@ -51,6 +51,26 @@ public class StageFlow : Singleton<StageFlow>
 
     public void MoveStage(int stage)
     {
+        SpawnPoints spawnPoints = SpawnPoints.Instance;
+        spawnPoints.StopCoroutine(spawnPoints.SpawnCouroutine);
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            Destroy(enemies[i]);
+        }
+        GameObject[] NPCs = GameObject.FindGameObjectsWithTag("NPC");
+        for (int i = 0; i < NPCs.Length; i++)
+        {
+            Destroy(NPCs[i]);
+        }
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+        for (int i = 0; i < bullets.Length; i++)
+        {
+            Destroy(bullets[i]);
+        }
+
+        StartStage(stage);
 
     }
 }

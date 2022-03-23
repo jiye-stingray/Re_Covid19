@@ -16,20 +16,33 @@ public class SpawnPoints : Singleton<SpawnPoints>
     [SerializeField] GameObject boss;
 
     public bool showingBoss;
+    public IEnumerator SpawnCouroutine;
+
 
     List<SpawnData> spawnList = new List<SpawnData>();
     void Start()
     {
+
     }
 
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StopCoroutine(SpawnCouroutine);
+            Debug.Log("스페이스 입력");
+        }
+
         CheckRed();
         CheckWhite();
     }
 
+
     public void SpawnPoint(string stageName)
     {
+        SpawnCouroutine = SpawnEnemy();
+
         spawnList.Clear();
 
         TextAsset textAsset = Resources.Load(stageName) as TextAsset;
@@ -54,7 +67,9 @@ public class SpawnPoints : Singleton<SpawnPoints>
 
         stringReader.Close();
 
-        StartCoroutine(SpawnEnemy());
+        StartCoroutine(SpawnCouroutine);
+
+
 
     }
 
@@ -86,7 +101,7 @@ public class SpawnPoints : Singleton<SpawnPoints>
     }
 
 
-    IEnumerator SpawnEnemy()
+    public IEnumerator SpawnEnemy()
     {
         for (int i = 0; i < spawnList.Count; i++)
         {
