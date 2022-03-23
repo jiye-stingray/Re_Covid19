@@ -180,8 +180,8 @@ MonoBehaviour:
   - {fileID: 712013691}
   - {fileID: 1090788735}
   - {fileID: 1063793305}
-  - {fileID: 1976951119}
   - {fileID: 1793312063}
+  - {fileID: 1976951119}
   NPCs:
   - {fileID: 3136136915194934927, guid: 86386c4d7a678014aa81a024bdea146e, type: 3}
   - {fileID: 4240710559581638808, guid: d59dd157552543c4895fd914d7c7142e, type: 3}
@@ -796,7 +796,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &508088923
 GameObject:
@@ -1691,7 +1691,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1036205865
 GameObject:
@@ -3185,6 +3185,7 @@ MonoBehaviour:
   hp: 0
   pain: 0
   totalScore: 0
+  bonusScore: 0
   enemyScore: 0
   itemCountScore: 0
   stageScore: 0

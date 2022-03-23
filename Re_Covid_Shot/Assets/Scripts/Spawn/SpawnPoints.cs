@@ -30,11 +30,11 @@ public class SpawnPoints : Singleton<SpawnPoints>
 
     public void SpawnPoint(string stageName)
     {
-        //内风凭
-        SpawnCouroutine = SpawnEnemy();
+
 
         #region Parce
         spawnList.Clear();
+
 
         TextAsset textAsset = Resources.Load(stageName) as TextAsset;
         StringReader stringReader = new StringReader(textAsset.text);
@@ -44,6 +44,7 @@ public class SpawnPoints : Singleton<SpawnPoints>
         while (stringReader != null)
         {
             string line = stringReader.ReadLine();
+
 
             if (line == null)
                 break;
@@ -62,6 +63,12 @@ public class SpawnPoints : Singleton<SpawnPoints>
 
         #endregion
 
+        //内风凭
+        if (SpawnCouroutine != null)
+        {
+            SpawnCouroutine = null;
+        }
+        SpawnCouroutine = SpawnEnemy();
 
         StartCoroutine(SpawnCouroutine);
 
@@ -97,10 +104,12 @@ public class SpawnPoints : Singleton<SpawnPoints>
 
     public IEnumerator SpawnEnemy()
     {
+        Debug.Log(spawnList[0].Pos);
+
         for (int i = 0; i < spawnList.Count; i++)
         {
             GameObject enemy = ReturnEnemy(spawnList[i].Type);
-            Transform tramsform = spawnPoints[i];
+            Transform tramsform = spawnPoints[spawnList[i].Pos];
 
             Instantiate(enemy, tramsform.position, tramsform.rotation);
 

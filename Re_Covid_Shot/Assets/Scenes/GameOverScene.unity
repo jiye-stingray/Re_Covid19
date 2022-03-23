@@ -330,7 +330,7 @@ RectTransform:
   - {fileID: 1345178636}
   - {fileID: 1511899894}
   m_Father: {fileID: 1708754880}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -766,8 +766,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1661335602}
-        m_TargetAssemblyTypeName: OverUiController, Assembly-CSharp
+      - m_Target: {fileID: 1661335604}
+        m_TargetAssemblyTypeName: OverUIController, Assembly-CSharp
         m_MethodName: GameOverBtnClick
         m_Mode: 1
         m_Arguments:
@@ -1266,8 +1266,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1661335602}
-        m_TargetAssemblyTypeName: OverUiController, Assembly-CSharp
+      - m_Target: {fileID: 1661335604}
+        m_TargetAssemblyTypeName: OverUIController, Assembly-CSharp
         m_MethodName: RestartBtnClick
         m_Mode: 1
         m_Arguments:
@@ -3175,7 +3175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1661335603}
-  - component: {fileID: 1661335602}
+  - component: {fileID: 1661335604}
   m_Layer: 0
   m_Name: UIController
   m_TagString: Untagged
@@ -3183,7 +3183,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1661335602
+--- !u!4 &1661335603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661335601}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1661335604
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3198,21 +3213,6 @@ MonoBehaviour:
   enemyScoreText: {fileID: 1207099144}
   bonusScoreText: {fileID: 1679765197}
   totalScoreText: {fileID: 744856218}
---- !u!4 &1661335603
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1661335601}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 223.74089, y: 507.84247, z: -1.767659}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1679765195
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,8 +3444,8 @@ RectTransform:
   - {fileID: 323449858}
   - {fileID: 622901144}
   - {fileID: 398861527}
-  - {fileID: 161760669}
   - {fileID: 2091504843}
+  - {fileID: 161760669}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3871,7 +3871,7 @@ GameObject:
   - component: {fileID: 2091504845}
   - component: {fileID: 2091504844}
   m_Layer: 5
-  m_Name: ScoreCheckText (TMP)
+  m_Name: ScoreCheckTexts (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3893,7 +3893,7 @@ RectTransform:
   - {fileID: 1679765196}
   - {fileID: 744856217}
   m_Father: {fileID: 1708754880}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}

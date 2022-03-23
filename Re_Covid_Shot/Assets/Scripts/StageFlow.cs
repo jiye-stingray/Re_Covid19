@@ -31,14 +31,14 @@ public class StageFlow : Singleton<StageFlow>
 
     public void EndStage()
     {
+        stageCount++;
         StageBonusScoreCheck();
-        if (stageCount >= 2)
+        if (stageCount > 2)
         {
             GameManager.Instance.GameOver();
         }
         else
         {
-            stageCount++;
             StartStage(stageCount);
         }
     }

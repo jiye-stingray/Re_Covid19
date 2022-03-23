@@ -69,11 +69,11 @@ public class Boss : Enemy
 
     IEnumerator SnakeTailAttack()
     {
-        int bulletCount = 101;
+        int bulletCount = 51;
 
         for (int i = 0; i < bulletCount; i++)
         {
-            Vector2 vec = new Vector2(Mathf.Cos(Mathf.PI * 10 * i / bulletCount), -1);
+            Vector2 vec = new Vector2(Mathf.Cos(Mathf.PI * 15 * i / bulletCount), -1);
 
             GameObject bullet = Instantiate(base.bullet,transform.position,transform.rotation);
             Bullet bulletLogic = bullet.GetComponent<Bullet>();

@@ -65,6 +65,7 @@ public class RankingSet : MonoBehaviour
         rankingList.Add(rank);
 
         rankingList.Sort((rank1,rank2) => rank1.score.CompareTo(rank2.score));
+        rankingList.Reverse();
 
         if (rankingList.Count >= 6)
             rankingList.RemoveAt(5);
