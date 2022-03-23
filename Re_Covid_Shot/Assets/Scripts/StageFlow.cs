@@ -49,4 +49,8 @@ public class StageFlow : Singleton<StageFlow>
         gameManager.stageScore += GameManager.MaxPain - gameManager.Pain;
     }
 
+    public void MoveStage(int stage)
+    {
+
+    }
 }

@@ -28,6 +28,7 @@ public class CheatController : Singleton<CheatController>
         SpawnWhite();
         CheatPanelShow();
     }
+
     private void PowerUP()
     {
         
@@ -89,16 +90,48 @@ public class CheatController : Singleton<CheatController>
             cheatPanel.SetActive(true);
             HPInput.text = "";
             painInput.text = "";
+            stageInput.text = "";
         }
 
     }
 
+    /// <summary>
+    /// 입력 버튼을 눌렀을 때
+    /// </summary>
     public void InputValue()
     {
-        if(HPInput.text != "")
-            GameManager.Instance.HP = int.Parse(HPInput.text);
-        if(painInput.text != "")
-            GameManager.Instance.Pain = int.Parse(painInput.text);
+        if (stageInput.text != "")
+            MoveStageCheack(int.Parse(stageInput.text));
+
+        if (HPInput.text != "")
+            HPCheack(int.Parse(HPInput.text));
+        if (painInput.text != "")
+            painCheack(int.Parse(painInput.text));
         cheatPanel.SetActive(false);
     }
+
+    void MoveStageCheack(int stage)
+    {
+        if (stage == 1 || stage == 2)
+            StageFlow.Instance.MoveStage(stage);
+        else
+            return;
+
+    }
+
+    void HPCheack(int HPAmount)
+    {
+        if (HPAmount > 100 || HPAmount < 0)
+            return;
+        GameManager.Instance.HP = HPAmount;
+    }
+
+    void painCheack(int painAmount)
+    {
+        if (painAmount > 100 || painAmount < 0)
+            return;
+        GameManager.Instance.Pain = painAmount;
+    }
+
+
 }
