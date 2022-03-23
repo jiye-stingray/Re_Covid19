@@ -58,7 +58,3 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-
-* linguist-vendored
-*.c# linguist-vendored=true
-*.cs linguist-detectable=true
