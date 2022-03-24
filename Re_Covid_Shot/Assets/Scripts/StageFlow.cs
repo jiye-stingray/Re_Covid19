@@ -7,6 +7,7 @@ public class StageFlow : Singleton<StageFlow>
 {
     public int stageCount = 1;
     GameManager gameManager => GameManager.Instance;
+    Player player => Player.Instance;
 
     [SerializeField] GameObject ImagePanel;
     [SerializeField] TMP_Text stageText;
@@ -26,8 +27,14 @@ public class StageFlow : Singleton<StageFlow>
     {
     }
 
+    IEnumerator StartPlayerPos()
+    {
+        yield return new WaitForSeconds(0.5f);
+    }
+
     void StartStage(int stage)
     {
+
         GameManager.Instance.Init();
 
         stageText.text = "Stage " + stage;
@@ -86,4 +93,5 @@ public class StageFlow : Singleton<StageFlow>
         StartStage(stage);
 
     }
+
 }
