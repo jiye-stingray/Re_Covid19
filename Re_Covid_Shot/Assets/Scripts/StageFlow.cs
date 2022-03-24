@@ -28,8 +28,7 @@ public class StageFlow : Singleton<StageFlow>
 
     void StartStage(int stage)
     {
-        if (stage == 1)
-            GameManager.Instance.Init();
+        GameManager.Instance.Init();
 
         stageText.text = "Stage " + stage;
         anim.SetTrigger("isShow");

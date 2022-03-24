@@ -114,7 +114,6 @@ public class Player : Singleton<Player>
             {
                 Enemy enemy = collision.gameObject.GetComponent<Enemy>();
                 gameManager.HP -= Mathf.Max(0, (int)(enemy.power * 0.5f));
-                StartCoroutine(Invisibility(1.5f, 1.5f));
 
             }
             else if (collision.gameObject.CompareTag("Bullet"))
@@ -125,6 +124,9 @@ public class Player : Singleton<Player>
                     gameManager.HP -= Mathf.Max(0,(int)(bullet.power));
                 }
             }
+
+            StartCoroutine(Invisibility(1.5f, 1.5f));
+
         }
 
 

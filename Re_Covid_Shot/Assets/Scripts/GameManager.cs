@@ -88,7 +88,6 @@ public class GameManager : Singleton<GameManager>
                 break;
             case 2:
                 pain = (int)(MaxPain * 0.2f);
-
                 break;  
             default:
                 break;
