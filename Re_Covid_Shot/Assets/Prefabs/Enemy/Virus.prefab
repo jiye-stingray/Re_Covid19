@@ -150,7 +150,7 @@ MonoBehaviour:
   hp: 5
   speed: 3
   bullet: {fileID: 4735495705457096283, guid: ce206a7c64e6b224689179b162c663e7, type: 3}
-  isBoss: 1
+  isBoss: 0
   power: 6
   score: 3
 --- !u!95 &245760139909725142

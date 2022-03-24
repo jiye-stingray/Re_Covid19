@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     }
     public float speed;
     [SerializeField] protected GameObject bullet;
-    public bool isBoss = true;
+    public bool isBoss;
 
     public int power;
 
@@ -67,16 +67,10 @@ public class Enemy : MonoBehaviour
         {
             if (isBoss)
                 return;
-
-            GameManager.Instance.Pain += Mathf.Min((int)(power * 0.5f),100);
+            Debug.Log("벽꿍");
+            GameManager.Instance.Pain += (int)(power * 0.5f);
 
             Destroy(gameObject);
-        }
-        else if (collision.gameObject.CompareTag("Player"))     //플레이어에게 죽었을 때
-        {
-            if (isBoss)
-                return;
-            Dead();
         }
 
     }
