@@ -80,7 +80,7 @@ public class Boss : Enemy
             bulletLogic.power = power;
             bulletLogic.moveVec = vec;
 
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.15f);
 
         }
         attackIndex++;
@@ -91,16 +91,27 @@ public class Boss : Enemy
     {
         int bulletCount = 50;
 
-        for (int i = 0; i < bulletCount; i++)
+        for (int i = 0; i < 3; i++)
         {
-            Vector2 vec = new Vector2(Mathf.Cos(Mathf.PI * 2 * i / bulletCount), Mathf.Sin(Mathf.PI * 2 * i / bulletCount));
+            for (int j = 0; j < bulletCount; j++)
+            {
+                Vector2 vec = new Vector2(Mathf.Cos(Mathf.PI * 2 * j / bulletCount), Mathf.Sin(Mathf.PI * 2 * j / bulletCount));
 
-            GameObject bullet = Instantiate(base.bullet, transform.position, transform.rotation);
-            Bullet bulletLogic = bullet.GetComponent<Bullet>();
-            bulletLogic.power = power;
-            bulletLogic.moveVec = vec;
+                GameObject bullet = Instantiate(base.bullet, transform.position, transform.rotation);
+                Bullet bulletLogic = bullet.GetComponent<Bullet>();
 
+                //총알의 방향 정하기
+                Vector3 roVec = Vector3.forward * 360 * j / bulletCount;
+                bullet.transform.Rotate(roVec);
+
+
+                bulletLogic.power = power;
+                bulletLogic.moveVec = vec;
+
+            }
         }
+
+
         yield return new WaitForSeconds(0.1f);
         attackIndex++;
         CheckAttack();
