@@ -37,6 +37,10 @@ public class RankingSet : MonoBehaviour
             InputID();
 
         }
+        else
+        {
+            ShowRanking();
+        }
     }
 
     private void InputID()

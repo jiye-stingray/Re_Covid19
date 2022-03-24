@@ -100,7 +100,7 @@ public class SpawnPoints : Singleton<SpawnPoints>
         for (int i = 0; i < spawnList.Count; i++)
         {
             GameObject enemy = ReturnEnemy(spawnList[i].Type);
-            Transform tramsform = spawnPoints[i];
+            Transform tramsform = spawnPoints[spawnList[i].Pos];
 
             Instantiate(enemy, tramsform.position, tramsform.rotation);
 

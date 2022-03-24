@@ -63,6 +63,8 @@ public class StageFlow : Singleton<StageFlow>
 
     public void MoveStage(int stage)
     {
+        stageCount = stage;
+
         SpawnPoints spawnPoints = SpawnPoints.Instance;
         spawnPoints.StopCoroutine(spawnPoints.SpawnCouroutine);
 
