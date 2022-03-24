@@ -27,6 +27,7 @@ public class StageFlow : Singleton<StageFlow>
     {
     }
 
+
     IEnumerator StartPlayerPos()
     {
         yield return new WaitForSeconds(0.5f);
