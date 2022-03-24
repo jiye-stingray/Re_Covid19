@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class StageFlow : Singleton<StageFlow>
 {
@@ -8,7 +9,8 @@ public class StageFlow : Singleton<StageFlow>
     GameManager gameManager => GameManager.Instance;
 
     [SerializeField] GameObject ImagePanel;
-    [SerializeField] Animator anim;
+    [SerializeField] TMP_Text stageText;
+     Animator anim;
 
     public override void Awake()
     {
@@ -29,6 +31,7 @@ public class StageFlow : Singleton<StageFlow>
         if (stage == 1)
             GameManager.Instance.Init();
 
+        stageText.text = "Stage " + stage;
         anim.SetTrigger("isShow");
 
 
