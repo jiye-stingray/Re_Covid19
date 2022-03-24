@@ -76,12 +76,27 @@ public class GameManager : Singleton<GameManager>
 
     public void Init()
     {
-        isGameOver = false;
+
+        switch (stageScore)
+        {
+            case 1:
+                pain = (int)(MaxPain * 0.1f);
+                totalScore = 0;
+                enemyScore = 0;
+                itemCountScore = 0;
+                stageScore = 0;
+                break;
+            case 2:
+                pain = (int)(MaxPain * 0.2f);
+
+                break;  
+            default:
+                break;
+        }
+
         HP = MaxHP;
-        pain = (int)(MaxPain * 0.2f);
-        totalScore = 0;
-        enemyScore = 0;
-        itemCountScore = 0;
-        stageScore = 0;
+        isGameOver = false;
+ 
     }
+
 }

@@ -5,7 +5,7 @@ using TMPro;
 
 public class StageFlow : Singleton<StageFlow>
 {
-    int stageCount = 1;
+    public int stageCount = 1;
     GameManager gameManager => GameManager.Instance;
 
     [SerializeField] GameObject ImagePanel;
