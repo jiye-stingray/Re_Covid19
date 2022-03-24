@@ -12,6 +12,7 @@ public class CheatController : Singleton<CheatController>
     [SerializeField] TMP_InputField stageInput;
     [SerializeField] TMP_InputField HPInput;
     [SerializeField] TMP_InputField painInput;
+    [SerializeField] TMP_InputField powerInput;
 
     void Start()
     {
@@ -27,21 +28,12 @@ public class CheatController : Singleton<CheatController>
         SpawnRed();
         SpawnWhite();
         CheatPanelShow();
-        PowerUP();
     }
 
-    private void PowerUP()
-    {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            
-        }
-    }
 
     public bool isInvisbilityCheat;
     void InvisibilityTrue()
     {
-        
 
         if (Input.GetKeyDown(KeyCode.I))
         {
@@ -95,6 +87,7 @@ public class CheatController : Singleton<CheatController>
             HPInput.text = "";
             painInput.text = "";
             stageInput.text = "";
+            powerInput.text = "";
         }
 
     }
@@ -106,11 +99,12 @@ public class CheatController : Singleton<CheatController>
     {
         if (stageInput.text != "")
             MoveStageCheack(int.Parse(stageInput.text));
-
         if (HPInput.text != "")
             HPCheack(int.Parse(HPInput.text));
         if (painInput.text != "")
             painCheack(int.Parse(painInput.text));
+        if (powerInput.text != "")
+            PowerCheack(int.Parse(powerInput.text));
         cheatPanel.SetActive(false);
     }
 
@@ -137,5 +131,11 @@ public class CheatController : Singleton<CheatController>
         GameManager.Instance.Pain = painAmount;
     }
 
+    void PowerCheack(int power)
+    {
+        if (power > 5 || power < 0)
+            return;
+        Player.Instance.BulletLevel = power;
+    }
 
 }
