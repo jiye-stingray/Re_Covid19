@@ -28,6 +28,13 @@ public class Enemy : MonoBehaviour
 
     public Player player => Player.Instance;
 
+    Animator anim;
+
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     protected virtual void Update()
     {
 
@@ -52,6 +59,7 @@ public class Enemy : MonoBehaviour
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
             if(bullet.myBullet == Bullet.BulletType.Player)
             {
+                anim.SetTrigger("isHit");
                 HP -= Mathf.Max(0,bullet.power);
             }
         }
@@ -66,6 +74,8 @@ public class Enemy : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Player"))     //플레이어에게 죽었을 때
         {
+            if (isBoss)
+                return;
             Dead();
         }
 

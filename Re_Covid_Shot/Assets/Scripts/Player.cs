@@ -25,6 +25,7 @@ public class Player : Singleton<Player>
         set
         {
             bulletLevel = value;
+
             if (bulletLevel > 5)
                 bulletLevel = 5;
             else if (bulletLevel < 0)

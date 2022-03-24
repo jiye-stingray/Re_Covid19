@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6266762803531552127}
   - component: {fileID: 6266762803531552120}
   - component: {fileID: 6266762803531552124}
+  - component: {fileID: 2985579649121111401}
   m_Layer: 0
   m_Name: Cancer Cell
   m_TagString: Enemy
@@ -146,9 +147,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9b0b5f0e8c706499b8cfed4e0df498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
+  hp: 10
   speed: 1
   bullet: {fileID: 4735495705457096283, guid: ce206a7c64e6b224689179b162c663e7, type: 3}
   isBoss: 1
   power: 10
   score: 15
+--- !u!95 &2985579649121111401
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6266762803531552121}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: bf72c7173cd177c4ba5593ed1d6277d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -27,11 +27,15 @@ public class CheatController : Singleton<CheatController>
         SpawnRed();
         SpawnWhite();
         CheatPanelShow();
+        PowerUP();
     }
 
     private void PowerUP()
     {
-        
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            
+        }
     }
 
     public bool isInvisbilityCheat;

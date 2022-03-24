@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 686896630724272851}
   - component: {fileID: 686896630724272879}
   - component: {fileID: 686896630724272878}
+  - component: {fileID: 8898120494974880976}
   m_Layer: 0
   m_Name: Bacteria
   m_TagString: Enemy
@@ -136,9 +137,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be62ae5328622504db3ad931a649e4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
+  hp: 2
   speed: 1
   bullet: {fileID: 0}
   isBoss: 1
   power: 2
   score: 1
+--- !u!95 &8898120494974880976
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686896630724272850}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e8db06099dc63cd4786215e346c51cd2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -59,6 +59,7 @@ public class RankingSet : MonoBehaviour
         RankingSeting(ID, score);
     }
 
+
     void RankingSeting(string name, int score)
     {
         Rank rank = new Rank();
