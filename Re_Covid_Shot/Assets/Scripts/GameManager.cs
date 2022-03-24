@@ -77,7 +77,7 @@ public class GameManager : Singleton<GameManager>
     public void Init()
     {
 
-        switch (stageScore)
+        switch (StageFlow.Instance.stageCount)
         {
             case 1:
                 pain = (int)(MaxPain * 0.1f);
