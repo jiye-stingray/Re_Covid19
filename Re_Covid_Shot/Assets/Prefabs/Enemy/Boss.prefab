@@ -257,7 +257,9 @@ MonoBehaviour:
   power: 20
   score: 100
   MaxHP: 100
+  attackIndex: 0
   spawnEnemy: {fileID: 686896630724272850, guid: cc69971ef5fc27a46a99ae8a8710e383, type: 3}
+  spinPos: {fileID: 0}
   spawnPos:
   - {fileID: 3165117566722990339}
   - {fileID: 3165117566070776508}

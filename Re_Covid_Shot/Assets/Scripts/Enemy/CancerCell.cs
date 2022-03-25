@@ -23,7 +23,7 @@ public class CancerCell : Enemy
             Bullet bulletLogic = bullet.GetComponent<Bullet>();
             bulletLogic.power = power;
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }

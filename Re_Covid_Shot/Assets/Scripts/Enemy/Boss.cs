@@ -10,7 +10,6 @@ public class Boss : Enemy
     public int attackIndex = 0;
 
     [SerializeField] GameObject spawnEnemy;
-
     [SerializeField] Transform[] spawnPos;
 
     [SerializeField] Image HPBar;
@@ -55,6 +54,7 @@ public class Boss : Enemy
                 StartCoroutine(CircleShot());
                 break;
             case 1:
+                StartCoroutine(SnakeShot());
                 break;
             case 2:
                 break;
@@ -78,8 +78,35 @@ public class Boss : Enemy
 
             yield return new WaitForSeconds(0.3f);
         }
+
+        yield return new WaitForSeconds(0.5f);
+
+        attackIndex++;
+        CheckAttack();
     }
 
+    IEnumerator SnakeShot()
+    {
+        int bulletCount = 101;
+
+        for (int i = 0; i < bulletCount; i++)
+        {
+            Vector2 vec = new Vector2(Mathf.Cos(Mathf.PI * 10 * i / bulletCount), -1);
+
+
+            GameObject bullet = Instantiate(this.bullet,transform.position,transform.rotation);
+            Bullet logic = bullet.GetComponent<Bullet>();
+            logic.changeVec = vec;
+
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        attackIndex++;
+        CheckAttack();
+
+    }
 
     public override void Dead()
     {

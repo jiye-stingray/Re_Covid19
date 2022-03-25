@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     public int power;
 
     public Vector3 moveVec;
+    public Vector2 changeVec = Vector2.zero;
 
     public enum BulletType
     {
@@ -28,7 +29,10 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(moveVec * speed * Time.deltaTime,Space.Self);
+        if (changeVec != Vector2.zero)
+            transform.Translate(changeVec * speed * Time.deltaTime, Space.Self);
+        else
+            transform.Translate(moveVec * speed * Time.deltaTime,Space.Self);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
