@@ -57,6 +57,7 @@ public class Boss : Enemy
                 StartCoroutine(SnakeShot());
                 break;
             case 2:
+                StartCoroutine(SpawnEnemy());
                 break;
             default:
                 break;
@@ -106,6 +107,20 @@ public class Boss : Enemy
         attackIndex++;
         CheckAttack();
 
+    }
+
+    IEnumerator SpawnEnemy()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            Instantiate(spawnEnemy, spawnPos[0].position, spawnPos[0].rotation);
+            Instantiate(spawnEnemy, spawnPos[1].position, spawnPos[1].rotation);
+
+            yield return new WaitForSeconds(1f);
+        }
+        yield return new WaitForSeconds(0.5f);
+        attackIndex++;
+        CheckAttack();
     }
 
     public override void Dead()
