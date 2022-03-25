@@ -19,7 +19,6 @@ public class Virus : Enemy
         Bullet bulletLogic = bullet.GetComponent<Bullet>();
 
         bulletLogic.power = power;
-        bulletLogic.moveVec = moveVec;
 
         yield return null;
         

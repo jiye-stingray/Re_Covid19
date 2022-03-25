@@ -23,15 +23,6 @@ public class StageFlow : Singleton<StageFlow>
         StartStage(stageCount);
     }
 
-    void Update()
-    {
-    }
-
-
-    IEnumerator StartPlayerPos()
-    {
-        yield return new WaitForSeconds(0.5f);
-    }
 
     void StartStage(int stage)
     {

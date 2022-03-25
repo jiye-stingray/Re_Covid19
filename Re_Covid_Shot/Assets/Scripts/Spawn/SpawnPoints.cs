@@ -13,7 +13,7 @@ public class SpawnPoints : Singleton<SpawnPoints>
     [SerializeField] Transform[] whitePostion;
 
     [SerializeField] GameObject[] enemies;
-    [SerializeField] GameObject boss;
+    [SerializeField] GameObject[] bosses;
 
     public bool showingBoss;
     public IEnumerator SpawnCouroutine;
@@ -109,7 +109,7 @@ public class SpawnPoints : Singleton<SpawnPoints>
         }
 
         yield return new WaitForSeconds(1f);
-        Instantiate(boss);
+        Instantiate(bosses[StageFlow.Instance.stageCount -1]);
         
     }
 

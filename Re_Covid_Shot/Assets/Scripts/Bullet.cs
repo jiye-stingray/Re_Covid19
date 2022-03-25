@@ -22,11 +22,13 @@ public class Bullet : MonoBehaviour
     {
         if (myBullet == BulletType.Player)
             moveVec = Vector3.up;
+        else
+            moveVec = Vector2.down;
     }
 
     void Update()
     {
-        transform.Translate( moveVec * speed * Time.deltaTime);
+        transform.Translate(moveVec * speed * Time.deltaTime,Space.Self);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

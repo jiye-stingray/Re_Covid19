@@ -37,7 +37,6 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
-
         transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
 
@@ -67,7 +66,6 @@ public class Enemy : MonoBehaviour
         {
             if (isBoss)
                 return;
-            Debug.Log("КЎВс");
             GameManager.Instance.Pain += (int)(power * 0.5f);
 
             Destroy(gameObject);

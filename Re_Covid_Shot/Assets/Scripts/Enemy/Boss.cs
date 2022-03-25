@@ -7,7 +7,7 @@ public class Boss : Enemy
 {
 
     [SerializeField] int MaxHP;
-    int attackIndex = 0;
+    public int attackIndex = 0;
 
     [SerializeField] GameObject spawnEnemy;
 
@@ -44,7 +44,7 @@ public class Boss : Enemy
 
    
 
-    void CheckAttack()
+    public virtual void CheckAttack()
     {
         if(attackIndex == 3)
             attackIndex = 0;
@@ -52,13 +52,11 @@ public class Boss : Enemy
         switch (attackIndex)
         {
             case 0:
-                StartCoroutine(SnakeTailAttack());
+                StartCoroutine(CircleShot());
                 break;
             case 1:
-                StartCoroutine(CircleAttack());
                 break;
             case 2:
-                StartCoroutine(SpawnEnemy());
                 break;
             default:
                 break;
@@ -67,68 +65,21 @@ public class Boss : Enemy
 
     }
 
-    IEnumerator SnakeTailAttack()
+    IEnumerator CircleShot()
     {
-        int bulletCount = 101;
-
-        for (int i = 0; i < bulletCount; i++)
-        {
-            Vector2 vec = new Vector2(Mathf.Cos(Mathf.PI * 10 * i / bulletCount), -1);
-
-            GameObject bullet = Instantiate(base.bullet,transform.position,transform.rotation);
-            Bullet bulletLogic = bullet.GetComponent<Bullet>();
-            bulletLogic.power = power;
-            bulletLogic.moveVec = vec;
-
-            yield return new WaitForSeconds(0.15f);
-
-        }
-        attackIndex++;
-        CheckAttack();
-    }
-
-    IEnumerator CircleAttack()
-    {
-        int bulletCount = 50;
-
         for (int i = 0; i < 3; i++)
         {
-            for (int j = 0; j < bulletCount; j++)
+            for (int j = 0; j < 360; j += 13)
             {
-                Vector2 vec = new Vector2(Mathf.Cos(Mathf.PI * 2 * j / bulletCount), Mathf.Sin(Mathf.PI * 2 * j / bulletCount));
-
-                GameObject bullet = Instantiate(base.bullet, transform.position, transform.rotation);
-                Bullet bulletLogic = bullet.GetComponent<Bullet>();
-
-                //총알의 방향 정하기
-                Vector3 roVec = Vector3.forward * 360 * j / bulletCount;
-                bullet.transform.Rotate(roVec);
-
-
-                bulletLogic.power = power;
-                bulletLogic.moveVec = vec;
-
+                GameObject Bullet = Instantiate(this.bullet);
+                Bullet.transform.position = transform.position;
+                Bullet.transform.rotation = Quaternion.Euler(0, 0, j);
             }
+
+            yield return new WaitForSeconds(0.3f);
         }
-
-
-        yield return new WaitForSeconds(0.1f);
-        attackIndex++;
-        CheckAttack();
     }
 
-    IEnumerator SpawnEnemy()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            Instantiate(spawnEnemy, spawnPos[0].position, spawnPos[0].rotation);
-            Instantiate(spawnEnemy, spawnPos[1].position, spawnPos[1].rotation);
-
-            yield return new WaitForSeconds(0.5f);
-        }
-        attackIndex++;
-        CheckAttack();
-    }
 
     public override void Dead()
     {

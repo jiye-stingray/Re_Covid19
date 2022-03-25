@@ -19,8 +19,6 @@ public class Grem : Enemy
             Bullet bulletLogic = bullet.GetComponent<Bullet>();
 
            bulletLogic.power = this.power;
-           bulletLogic.moveVec = Vector3.down;
-
 
             yield return new WaitForSeconds(1f);
         }

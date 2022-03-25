@@ -198,7 +198,9 @@ MonoBehaviour:
   - {fileID: 4262459798125017554, guid: 23bdac48a3eb4ea4b9c8df9dbf652416, type: 3}
   - {fileID: 4186956899102368446, guid: cc632f9964ed30a41937b8dfa33cf28b, type: 3}
   - {fileID: 6266762803531552121, guid: bc0e81019f588b04482fa2d56cefa0fe, type: 3}
-  boss: {fileID: 3165117566122348988, guid: 5fb6667bc192ef843a937b44809bf626, type: 3}
+  bosses:
+  - {fileID: 3165117566122348988, guid: 5fb6667bc192ef843a937b44809bf626, type: 3}
+  - {fileID: 3165117566122348988, guid: 1d081d0307164754a94e5a3ba47033ee, type: 3}
   showingBoss: 0
   redTimer: 0
 --- !u!1 &142747774
@@ -3035,7 +3037,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223654447}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.18, y: -3.44, z: 0}
+  m_LocalPosition: {x: -0.04, y: -3.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
