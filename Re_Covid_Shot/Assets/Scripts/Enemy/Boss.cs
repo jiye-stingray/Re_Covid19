@@ -66,7 +66,7 @@ public class Boss : Enemy
 
     }
 
-    IEnumerator CircleShot()
+    public IEnumerator CircleShot()
     {
         for (int i = 0; i < 3; i++)
         {
@@ -86,7 +86,7 @@ public class Boss : Enemy
         CheckAttack();
     }
 
-    IEnumerator SnakeShot()
+    public IEnumerator SnakeShot()
     {
         int bulletCount = 101;
 
@@ -109,7 +109,7 @@ public class Boss : Enemy
 
     }
 
-    IEnumerator SpawnEnemy()
+    public IEnumerator SpawnEnemy()
     {
         for (int i = 0; i < 3; i++)
         {
