@@ -136,15 +136,19 @@ public class Player : Singleton<Player>
 
     }
 
+    
+
     /// <summary>
     /// 무적 상태를 나타내는 함수
     /// </summary>
     /// <param name="showTime">무적시간을 나타내는 효과가 지속되는 시간</param>
     /// <param name="realTIme">실제 무적 시간</param>
     /// <returns></returns>
-    IEnumerator Invisibility(float showTime, float realTIme)
+    public IEnumerator Invisibility(float showTime, float realTIme)
     {
         if (CheatController.Instance.isInvisbilityCheat)
+            yield break;
+        else if (isInvisibility)
             yield break;
 
         isInvisibility = true;

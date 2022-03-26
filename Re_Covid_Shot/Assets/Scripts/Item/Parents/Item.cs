@@ -6,6 +6,7 @@ public class Item : MonoBehaviour
 {
     public float speed;
     protected GameManager gameManager => GameManager.Instance;
+    protected Player player => Player.Instance;
 
     // Start is called before the first frame update
     void Start()
