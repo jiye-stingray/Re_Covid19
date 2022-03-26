@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grem : Enemy
 {
-    void Start()
+    protected override void Start()
     {
         StartCoroutine(Attack());
     }

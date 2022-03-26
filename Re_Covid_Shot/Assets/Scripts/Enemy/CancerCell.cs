@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CancerCell : Enemy
 {
-    private void Start()
+    protected override void Start()
     {
         StartCoroutine(Attack());
     }

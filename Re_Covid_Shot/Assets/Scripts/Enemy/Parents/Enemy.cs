@@ -21,10 +21,11 @@ public class Enemy : MonoBehaviour
     public float speed;
     [SerializeField] protected GameObject bullet;
     public bool isBoss;
-
     public int power;
-
     [SerializeField] int score;
+
+    public Vector3 changeVec = Vector3.zero;
+    Vector3 moveVec = Vector3.down;
 
     public Player player => Player.Instance;
 
@@ -35,9 +36,18 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    protected virtual void Start()
+    {
+
+    }
+
+    /// <summary>
+    /// ¿Ãµø
+    /// </summary>
     protected virtual void Update()
     {
-        transform.Translate(Vector3.down * speed * Time.deltaTime);
+
+        transform.Translate(moveVec * speed * Time.deltaTime);
     }
 
     public virtual void Dead()

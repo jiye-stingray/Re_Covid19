@@ -14,7 +14,7 @@ public class Boss : Enemy
 
     [SerializeField] Image HPBar;
 
-    void Start()
+    protected override void Start()
     {
         HP = MaxHP;
         isBoss = true;

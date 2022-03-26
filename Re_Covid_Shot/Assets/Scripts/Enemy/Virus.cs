@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class Virus : Enemy
 {
-
-    void Start()
+    float dashSpeed = 10f;
+    protected override void Start()
     {
+        StartCoroutine(Dash());
         StartCoroutine(Attack());
+    }
+
+    IEnumerator Dash()
+    {
+        float temp = speed;
+        yield return new WaitForSeconds(0.5f);
+        speed = dashSpeed;
+        yield return new WaitForSeconds(0.3f);
+        speed = temp;
     }
 
 
