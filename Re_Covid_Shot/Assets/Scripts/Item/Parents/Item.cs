@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-
+    public float speed;
     protected GameManager gameManager => GameManager.Instance;
 
     // Start is called before the first frame update
@@ -16,7 +16,7 @@ public class Item : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(Vector2.down * speed * Time.deltaTime);
     }
 
     public virtual void Use()
