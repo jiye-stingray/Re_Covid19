@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2250164451385973574}
   - component: {fileID: 2250164451385973577}
+  - component: {fileID: 2250164451385973575}
   - component: {fileID: 2250164451385973572}
-  - component: {fileID: 6275081885786691337}
   m_Layer: 0
-  m_Name: PowerUp
+  m_Name: HPHeal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.74655247, a: 1}
+  m_Color: {r: 0, g: 0.17926908, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -86,6 +86,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2250164451385973575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250164451385973576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0105e0c55ff0f6e43a1a386e2e23f5bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
 --- !u!70 &2250164451385973572
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -100,18 +113,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.99999994}
   m_Direction: 0
---- !u!114 &6275081885786691337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2250164451385973576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aab7bf8c36625dc468ba9fa825fce729, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2

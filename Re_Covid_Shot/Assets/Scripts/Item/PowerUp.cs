@@ -6,7 +6,8 @@ public class PowerUp : Item
 {
     public override void Use()
     {
-        gameManager.HP += 10;
+        if(player.BulletLevel < 4)
+            player.BulletLevel++;
         base.Use();
     }
 }
