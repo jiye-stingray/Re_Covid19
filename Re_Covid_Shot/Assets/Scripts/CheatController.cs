@@ -24,7 +24,7 @@ public class CheatController : Singleton<CheatController>
     {
         InvisibilityTrue();
         InvisbilityFalse();
-        AllEnemyDead();
+        AllEnemyDeadCheak();
         SpawnRed();
         SpawnWhite();
         CheatPanelShow();
@@ -50,17 +50,32 @@ public class CheatController : Singleton<CheatController>
         }
     }
 
-    private void AllEnemyDead()
+    private void AllEnemyDeadCheak()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            for (int i = 0; i < enemies.Length; i++)
-            {
-                Enemy enemyLogic = enemies[i].GetComponent<Enemy>();
-                enemyLogic.Dead();
-            }
+            AllEnemyDead(true);
         }
+    }
+
+    /// <summary>
+    /// 모든 적군을 죽이는 함수
+    /// </summary>
+    /// <param name="isCheat">치트로 사용할 경우에는 보스 포함</param>
+    public void AllEnemyDead(bool isCheat)
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            Enemy enemyLogic = enemies[i].GetComponent<Enemy>();
+            if (!isCheat)    //치트로 실행하지 않을시에는 보스 미포함
+            {
+                if (enemies[i].TryGetComponent<Boss>(out var boss))
+                    continue;
+            }
+            enemyLogic.Dead();
+        }
+
     }
 
     private void SpawnRed()
