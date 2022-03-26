@@ -54,6 +54,7 @@ public class GameManager : Singleton<GameManager>
     public int stageScore = 0;
 
     public List<Rank> rankingList = new List<Rank>();
+    Player player => Player.Instance;
 
 
     public void GameOver()
@@ -87,6 +88,7 @@ public class GameManager : Singleton<GameManager>
                 stageScore = 0;
                 break;
             case 2:
+                player.transform.position = Vector2.zero;
                 pain = (int)(MaxPain * 0.2f);
                 break;  
             default:

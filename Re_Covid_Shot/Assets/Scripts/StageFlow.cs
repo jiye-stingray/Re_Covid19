@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class StageFlow : Singleton<StageFlow>
@@ -23,9 +24,35 @@ public class StageFlow : Singleton<StageFlow>
         StartStage(stageCount);
     }
 
+    IEnumerator StartGame()
+    {
+        player.transform.position = new Vector2(0, -10);
+
+        BoxCollider2D collider = player.GetComponent<BoxCollider2D>();
+
+        collider.enabled = false;
+        float timer = 0;
+        for (; ; )
+        {
+            timer += Time.deltaTime;
+            player.transform.Translate(Vector2.up * player.speed * Time.deltaTime);
+
+            if (timer > 1f)
+                break;
+            yield return new WaitForEndOfFrame();
+        }
+        collider.enabled = true;
+
+
+    }
+
+    
+
 
     void StartStage(int stage)
     {
+        if (stage == 1)
+            StartCoroutine(StartGame());
 
         GameManager.Instance.Init();
 

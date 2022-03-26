@@ -6,7 +6,7 @@ public class Player : Singleton<Player>
 {
     float xMove;
     float yMove;
-    [SerializeField] float speed;
+    public float speed;
     public bool isInvisibility;
 
     [SerializeField] float fireTimer;
@@ -39,6 +39,7 @@ public class Player : Singleton<Player>
         base.Awake();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+
     }
 
     // Start is called before the first frame update
@@ -69,7 +70,7 @@ public class Player : Singleton<Player>
         xMove = Input.GetAxisRaw("Horizontal");
         yMove = Input.GetAxisRaw("Vertical");
 
-        transform.Translate(new Vector3(xMove, yMove, 0) * speed * Time.deltaTime);
+        transform.Translate(new Vector3(xMove, yMove, 0) * speed * Time.fixedDeltaTime);
 
         anim.SetInteger("isMove",(int)xMove);
     }
