@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class White : NPC
 {
-    //[SerializeField] GameObject[] items;
+    [SerializeField] GameObject[] items;
 
     protected override void Use()
     {
@@ -15,8 +15,7 @@ public class White : NPC
 
     void ItemSpawn()
     {
-        Debug.Log("아이템 생성");
-        //Instantiate(items[Random.Range(0, items.Length)], transform.position, transform.rotation);
+        Instantiate(items[Random.Range(0, items.Length)], transform.position, transform.rotation);
     }
 
 

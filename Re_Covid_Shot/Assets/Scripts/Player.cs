@@ -149,7 +149,6 @@ public class Player : Singleton<Player>
     /// <returns></returns>
     public IEnumerator SpeedUp()
     {
-        Debug.Log("코루틴 시작");
         isSpeedUpItem = true;
         Debug.Log(speed);
         yield return new WaitForSeconds(2f);

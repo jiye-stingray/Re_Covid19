@@ -32,8 +32,6 @@ public class NPC : MonoBehaviour
         {
             float timer = 0;
             float dirx = Random.Range(-1, 2);
-            Debug.Log(dirx);
-
             while (true)
             {
                 timer += Time.deltaTime;
