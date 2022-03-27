@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected GameObject bullet;
     public bool isBoss;
     public int power;
-    [SerializeField] int score;
+    [SerializeField] int score;     //처치 했을 때 플레이어에게 주는 점수
 
     public Vector3 changeVec = Vector3.zero;
     Vector3 moveVec = Vector3.down;
