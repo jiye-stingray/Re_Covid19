@@ -53,6 +53,7 @@ public class Player : Singleton<Player>
     {
         FireCheck();
         ShowInvisibility();
+        ShowSpeedUp();
 
     }
 
@@ -107,37 +108,16 @@ public class Player : Singleton<Player>
 
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void ShowSpeedUp()
     {
-        if (!isInvisibility)
-        {
-            if (collision.gameObject.CompareTag("Enemy"))
-            {
-                Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-                gameManager.HP -= Mathf.Max(0, (int)(enemy.power * 0.5f));
-                StartCoroutine(Invisibility(1.5f, 1.5f));
-
-
-            }
-            else if (collision.gameObject.CompareTag("Bullet"))
-            {
-                Bullet bullet = collision.gameObject.GetComponent<Bullet>();
-                if(bullet.myBullet == Bullet.BulletType.Enemy)
-                {
-                    gameManager.HP -= Mathf.Max(0,(int)(bullet.power));
-                    StartCoroutine(Invisibility(1.5f, 1.5f));
-
-                }
-            }
-
-
-        }
-
-
+        if (isSpeedUpItem)
+            speed = 10;
+        else
+            speed = 5;
     }
 
-    public bool isgodItem;
-    public Coroutine godCoroutine;
+    public bool isgodItem;      //코루틴 진행중을 알려주는 bool
+    public Coroutine godCoroutine;  //무적 코루틴을 담아두는 코루틴 변수
     /// <summary>
     /// 무적 상태를 나타내는 함수
     /// </summary>
@@ -159,5 +139,53 @@ public class Player : Singleton<Player>
         isgodItem = false;
 
     }
+
+    public bool isSpeedUpItem;      //코루틴 진행중을 알려주는 bool
+    public Coroutine speedUpCoroutine;      //스피드 업 코루틴을 담아두는 코루티 변수
+   
+    /// <summary>
+    /// 2초간 스피드를 빠르게 한다
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator SpeedUp()
+    {
+        Debug.Log("코루틴 시작");
+        isSpeedUpItem = true;
+        Debug.Log(speed);
+        yield return new WaitForSeconds(2f);
+        isSpeedUpItem = false;
+
+    }
+
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!isInvisibility)
+        {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+                gameManager.HP -= Mathf.Max(0, (int)(enemy.power * 0.5f));
+                godCoroutine =  StartCoroutine(Invisibility(1.5f, 1.5f));
+
+
+            }
+            else if (collision.gameObject.CompareTag("Bullet"))
+            {
+                Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+                if(bullet.myBullet == Bullet.BulletType.Enemy)
+                {
+                    gameManager.HP -= Mathf.Max(0,(int)(bullet.power));
+                    godCoroutine =  StartCoroutine(Invisibility(1.5f, 1.5f));
+
+                }
+            }
+
+
+        }
+
+
+    }
+
 
 }
