@@ -8,11 +8,11 @@ public class NPC : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(MoveCoroutine());
     }
 
     void Update()
     {
-        transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
 
     protected void Dead()
@@ -23,6 +23,32 @@ public class NPC : MonoBehaviour
     protected virtual void Use()
     {
         Dead();
+    }
+
+    IEnumerator MoveCoroutine()
+    {
+
+        while (true)
+        {
+            float timer = 0;
+            float dirx = Random.Range(-1, 2);
+            Debug.Log(dirx);
+
+            while (true)
+            {
+                timer += Time.deltaTime;
+
+                Vector3 moveVec = new Vector3(dirx, -1, 0);
+
+                transform.Translate(moveVec * speed * Time.deltaTime);
+                if (timer > 0.5f)
+                    break;
+
+                yield return new WaitForEndOfFrame();
+
+            }
+        }
+
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
