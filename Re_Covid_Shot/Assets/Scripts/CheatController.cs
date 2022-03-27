@@ -123,6 +123,7 @@ public class CheatController : Singleton<CheatController>
         cheatPanel.SetActive(false);
     }
 
+
     void MoveStageCheack(int stage)
     {
         if (stage == 1 || stage == 2)

@@ -9,7 +9,7 @@ public class Boss : Enemy
     [SerializeField] int MaxHP;
     public int attackIndex = 0;
 
-    [SerializeField] GameObject spawnEnemy;
+    [SerializeField] GameObject[] spawnEnemy;
     [SerializeField] Transform[] spawnPos;
 
     [SerializeField] Image HPBar;
@@ -113,8 +113,8 @@ public class Boss : Enemy
     {
         for (int i = 0; i < 3; i++)
         {
-            Instantiate(spawnEnemy, spawnPos[0].position, spawnPos[0].rotation);
-            Instantiate(spawnEnemy, spawnPos[1].position, spawnPos[1].rotation);
+            Instantiate(spawnEnemy[Random.Range(0,spawnEnemy.Length)], spawnPos[0].position, spawnPos[0].rotation);
+            Instantiate(spawnEnemy[Random.Range(0, spawnEnemy.Length)], spawnPos[1].position, spawnPos[1].rotation);
 
             yield return new WaitForSeconds(1f);
         }
