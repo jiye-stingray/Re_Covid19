@@ -2977,6 +2977,7 @@ MonoBehaviour:
   - {fileID: 5622924750817472463, guid: 6cead1c0d89555545a6cf18483b79fd4, type: 3}
   - {fileID: 5189064705636867784, guid: c70cd7c8edd49fa4fb7ec81e8885416e, type: 3}
   - {fileID: 6198816471521174729, guid: f58746ebdc1d211418b31e7a680b1d07, type: 3}
+  isgodItem: 0
 --- !u!212 &1223654451
 SpriteRenderer:
   m_ObjectHideFlags: 0

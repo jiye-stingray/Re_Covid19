@@ -136,8 +136,8 @@ public class Player : Singleton<Player>
 
     }
 
-    
-
+    public bool isgodItem;
+    public Coroutine godCoroutine;
     /// <summary>
     /// 무적 상태를 나타내는 함수
     /// </summary>
@@ -148,14 +148,15 @@ public class Player : Singleton<Player>
     {
         if (CheatController.Instance.isInvisbilityCheat)
             yield break;
-        else if (isInvisibility)
-            yield break;
+
+        isgodItem = true;
 
         isInvisibility = true;
         yield return new WaitForSeconds(showTime);
         sprite.color = Color.white;
         yield return new WaitForSeconds(realTIme);
         isInvisibility = false;
+        isgodItem = false;
 
     }
 
