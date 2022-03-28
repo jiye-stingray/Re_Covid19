@@ -37,7 +37,7 @@ public class BossManager : Singleton<BossManager>
             else if (mini1 != null && mini2 == null)
                 HP = mini1.GetComponent<Boss>().HP + mini2.GetComponent<Boss>().HP;
             else if (mini1 == null && mini2 != null)
-                HP = mini1.GetComponent<Boss>().HP + mini2.GetComponent<Boss>().HP;
+                HP = mini2.GetComponent<Boss>().HP + mini2.GetComponent<Boss>().HP;
 
             HPBar.fillAmount = (float)HP / MaxHP;
         }
