@@ -8,6 +8,7 @@ public class StageFlow : Singleton<StageFlow>
 {
     public int stageCount = 1;
     GameManager gameManager => GameManager.Instance;
+    BossManager BossManager => BossManager.Instance;
     Player player => Player.Instance;
 
     [SerializeField] GameObject ImagePanel;
@@ -66,7 +67,7 @@ public class StageFlow : Singleton<StageFlow>
 
     public void EndStage()
     {
-        Debug.Log(stageCount);
+        InitBossManager();
         StageBonusScoreCheck();
         if (stageCount >= 2)
         {
@@ -85,6 +86,15 @@ public class StageFlow : Singleton<StageFlow>
     {
         gameManager.stageScore += gameManager.HP;
         gameManager.stageScore += GameManager.MaxPain - gameManager.Pain;
+    }
+
+    void InitBossManager()
+    {
+        BossManager.HP = 0;
+        BossManager.boss = null;
+        BossManager.mini1 = null;
+        BossManager.mini2 = null;
+        BossManager.HPBar.enabled = false;
     }
 
     public void MoveStage(int stage)

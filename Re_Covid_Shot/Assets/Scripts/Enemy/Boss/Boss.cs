@@ -126,10 +126,8 @@ public class Boss : Enemy
 
     public override void Dead()
     {
-        Debug.Log(BossManager.Instance.isdivisible);
-        Debug.Log(BossManager.Instance.mini1 == null && BossManager.Instance.mini2 == null);
-        Debug.Log(isMiniBoss);
 
+        BossManager.Instance.HPBar.enabled = false;
         if (!isMiniBoss)
         {
             BossManager.Instance.InstantiateMiniBoss();
@@ -138,8 +136,10 @@ public class Boss : Enemy
         }
         else if (BossManager.Instance.isdivisible && (BossManager.Instance.mini1 == null || BossManager.Instance.mini2 == null) && isMiniBoss)
         {
+            BossManager.Instance.isdivisible = false;
             StageFlow.Instance.EndStage();
         }
+
 
 
         base.Dead();

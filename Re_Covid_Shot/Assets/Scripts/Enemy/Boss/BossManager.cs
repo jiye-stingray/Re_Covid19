@@ -9,6 +9,7 @@ public class BossManager : Singleton<BossManager>
     // 0. Boss
     // 1. BossPlus
     // 2. MiniBoss
+    // 3. MiniBossPlus
     public GameObject[] bosses;
     int stage => StageFlow.Instance.stageCount;
     public Image HPBar;
@@ -16,7 +17,7 @@ public class BossManager : Singleton<BossManager>
     float MaxHP;
     public bool isdivisible;
 
-    GameObject boss = null;
+    public GameObject boss = null;
     public GameObject mini1 = null;
     public GameObject mini2 = null;
 
@@ -58,8 +59,8 @@ public class BossManager : Singleton<BossManager>
     {
         HPBar.enabled = true;
 
-        mini1 = Instantiate(bosses[2]);
-        mini2 = Instantiate(bosses[2]);
+        mini1 = Instantiate(bosses[stage + 1]);
+        mini2 = Instantiate(bosses[stage + 1]);
 
         MoveMiniBoss();
 
@@ -73,5 +74,6 @@ public class BossManager : Singleton<BossManager>
         Boss logic2 = mini2.GetComponent<Boss>();
         logic2.moveVec = Vector2.left;
     }
+
 
 }

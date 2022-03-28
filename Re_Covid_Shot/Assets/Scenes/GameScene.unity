@@ -4596,7 +4596,12 @@ MonoBehaviour:
   - {fileID: 3165117566122348988, guid: 5fb6667bc192ef843a937b44809bf626, type: 3}
   - {fileID: 3165117566122348988, guid: 1d081d0307164754a94e5a3ba47033ee, type: 3}
   - {fileID: 3165117566122348988, guid: de296189f5e0f2445add46be11b92c0b, type: 3}
+  - {fileID: 3165117566122348988, guid: 56e7909824546b34db336191f2bddefd, type: 3}
   HPBar: {fileID: 706114219}
+  HP: 0
+  isdivisible: 0
+  mini1: {fileID: 0}
+  mini2: {fileID: 0}
 --- !u!4 &1828920829
 Transform:
   m_ObjectHideFlags: 0
