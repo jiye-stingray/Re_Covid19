@@ -135,6 +135,9 @@ public class Player : Singleton<Player>
         yield return new WaitForSeconds(showTime);
         sprite.color = Color.white;
         yield return new WaitForSeconds(realTIme);
+
+        if (CheatController.Instance.isInvisbilityCheat)
+            yield break;
         isInvisibility = false;
         isgodItem = false;
 

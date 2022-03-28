@@ -47,6 +47,8 @@ public class CheatController : Singleton<CheatController>
         if (Input.GetKeyDown(KeyCode.O) && isInvisbilityCheat)
         {
             player.isInvisibility = false;
+            isInvisbilityCheat = false;
+
         }
     }
 
