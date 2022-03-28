@@ -109,7 +109,8 @@ public class SpawnPoints : Singleton<SpawnPoints>
         }
 
         yield return new WaitForSeconds(1f);
-        Instantiate(bosses[StageFlow.Instance.stageCount -1]);
+        //Instantiate(bosses[StageFlow.Instance.stageCount -1]);
+        BossManager.Instance.InstantiateBoss();
         
     }
 

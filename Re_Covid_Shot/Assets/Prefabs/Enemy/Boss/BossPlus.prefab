@@ -143,10 +143,10 @@ GameObject:
   - component: {fileID: 3165117566122348987}
   - component: {fileID: 3165117566122348986}
   - component: {fileID: 3165117566122348989}
-  - component: {fileID: 3165117566122348984}
   - component: {fileID: 1832899133369960092}
+  - component: {fileID: -6665788490129991311}
   m_Layer: 0
-  m_Name: Boss
+  m_Name: BossPlus
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,7 +212,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2192450021786810173, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.1387968, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -238,32 +238,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.375
---- !u!114 &3165117566122348984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3165117566122348988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fecf442a9e1ea54d89d620d7915ac7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 0
-  speed: 2
-  bullet: {fileID: 6571373484723584160, guid: 3e00a41f9ff6ca94d818a909ec69bf5a, type: 3}
-  isBoss: 1
-  power: 20
-  score: 100
-  MaxHP: 100
-  attackIndex: 0
-  spawnEnemy: {fileID: 686896630724272850, guid: cc69971ef5fc27a46a99ae8a8710e383, type: 3}
-  spinPos: {fileID: 0}
-  spawnPos:
-  - {fileID: 3165117566722990339}
-  - {fileID: 3165117566070776508}
-  HPBar: {fileID: 5333647622487896169}
 --- !u!95 &1832899133369960092
 Animator:
   serializedVersion: 4
@@ -284,6 +258,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-6665788490129991311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3165117566122348988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c59ad7a82f4ca8e489ad3f15b70d837d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 200
+  speed: 2
+  bullet: {fileID: 6571373484723584160, guid: 3e00a41f9ff6ca94d818a909ec69bf5a, type: 3}
+  isBoss: 1
+  power: 20
+  score: 200
+  MaxHP: 200
+  attackIndex: 0
+  spawnEnemy:
+  - {fileID: 686896630724272850, guid: cc69971ef5fc27a46a99ae8a8710e383, type: 3}
+  - {fileID: 4262459798125017554, guid: 23bdac48a3eb4ea4b9c8df9dbf652416, type: 3}
+  - {fileID: 6266762803531552121, guid: bc0e81019f588b04482fa2d56cefa0fe, type: 3}
+  - {fileID: 4186956899102368446, guid: cc632f9964ed30a41937b8dfa33cf28b, type: 3}
+  spawnPos:
+  - {fileID: 3165117566722990339}
+  - {fileID: 3165117566070776508}
+  HPBar: {fileID: 5333647622487896169}
 --- !u!1 &3165117566722990338
 GameObject:
   m_ObjectHideFlags: 0

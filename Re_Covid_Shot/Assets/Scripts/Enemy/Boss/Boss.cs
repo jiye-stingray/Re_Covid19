@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class Boss : Enemy
 {
 
-    [SerializeField] int MaxHP;
+    public bool isMiniBoss;
+
+    public int MaxHP;
     public int attackIndex = 0;
 
     [SerializeField] GameObject[] spawnEnemy;
     [SerializeField] Transform[] spawnPos;
-
-    [SerializeField] Image HPBar;
 
     protected override void Start()
     {
@@ -24,12 +24,8 @@ public class Boss : Enemy
     protected override void Update()
     {
         base.Update();
-        HPBarShow();
     }
-    void HPBarShow()
-    {
-        HPBar.fillAmount = (float)HP / MaxHP;
-    }
+
 
     IEnumerator Showing()
     {
@@ -123,11 +119,29 @@ public class Boss : Enemy
         CheckAttack();
     }
 
-    public override void Dead()
+    void Split()
     {
 
-        //게임 끝
-        StageFlow.Instance.EndStage();
+    }
+
+    public override void Dead()
+    {
+        if (!isMiniBoss)
+        {
+            Debug.Log("죽음");
+            BossManager.Instance.InstantiateMiniBoss();
+            base.Dead();
+            return;
+        }
+        else
+        {
+
+
+            //게임 끝
+            StageFlow.Instance.EndStage();
+
+        }
+
 
         base.Dead();
     }
