@@ -23,10 +23,8 @@ public class Enemy : MonoBehaviour
     public bool isBoss;
     public int power;
     [SerializeField] int score;     //처치 했을 때 플레이어에게 주는 점수
-    public Vector3 moveVec = Vector3.down; //아래로 내려가는 Enemy
-
+    public Vector3 moveVec;//아래로 내려가는 Enemy
     public Player player => Player.Instance;
-
     Animator anim;
 
     void Awake()
@@ -36,7 +34,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
-
+        moveVec = Vector3.down;
     }
 
     /// <summary>
@@ -44,7 +42,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     protected virtual void Update()
     {
-        transform.Translate(moveVec * speed * Time.deltaTime);
+        transform.Translate(speed * Time.deltaTime * moveVec);
     }
 
     /// <summary>

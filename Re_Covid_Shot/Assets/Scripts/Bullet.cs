@@ -32,7 +32,8 @@ public class Bullet : MonoBehaviour
         if (changeVec != Vector2.zero)
             transform.Translate(changeVec * speed * Time.deltaTime, Space.Self);
         else
-            transform.Translate(moveVec * speed * Time.deltaTime,Space.Self);
+            transform.Translate(moveVec * speed * Time.deltaTime, Space.Self);
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)

@@ -153,7 +153,6 @@ public class Player : Singleton<Player>
     public IEnumerator SpeedUp()
     {
         isSpeedUpItem = true;
-        Debug.Log(speed);
         yield return new WaitForSeconds(2f);
         isSpeedUpItem = false;
 

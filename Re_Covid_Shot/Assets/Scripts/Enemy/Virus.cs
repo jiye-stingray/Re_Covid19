@@ -9,6 +9,7 @@ public class Virus : Enemy
     {
         StartCoroutine(Dash());
         StartCoroutine(Attack());
+        base.Start();
     }
 
     IEnumerator Dash()

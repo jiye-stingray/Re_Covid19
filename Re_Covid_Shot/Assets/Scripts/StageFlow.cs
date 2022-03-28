@@ -13,6 +13,7 @@ public class StageFlow : Singleton<StageFlow>
 
     [SerializeField] GameObject ImagePanel;
     [SerializeField] TMP_Text stageText;
+    [SerializeField] Image stageClearPanel;
      Animator anim;
 
     public override void Awake()
@@ -47,7 +48,17 @@ public class StageFlow : Singleton<StageFlow>
 
     }
 
-    
+    IEnumerator GameClear()
+    {
+        while (stageClearPanel.color == Color.white)
+        {
+            stageClearPanel.color += new Color(0, 0, 0 , 1);
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        GameManager.Instance.GameOver();
+
+    }
 
 
     void StartStage(int stage)
@@ -71,7 +82,7 @@ public class StageFlow : Singleton<StageFlow>
         StageBonusScoreCheck();
         if (stageCount >= 2)
         {
-            GameManager.Instance.GameOver();
+            StartCoroutine(GameClear());
         }
         else
         {
@@ -81,6 +92,8 @@ public class StageFlow : Singleton<StageFlow>
 
 
     }
+
+   
 
     private void StageBonusScoreCheck()
     {

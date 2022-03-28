@@ -10,6 +10,7 @@ public class CancerCell : Enemy
     protected override void Start()
     {
         StartCoroutine(Attack());
+        base.Start();
     }
 
     protected override IEnumerator Attack()
