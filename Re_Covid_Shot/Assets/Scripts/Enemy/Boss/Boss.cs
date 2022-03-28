@@ -126,20 +126,19 @@ public class Boss : Enemy
 
     public override void Dead()
     {
+        Debug.Log(BossManager.Instance.isdivisible);
+        Debug.Log(BossManager.Instance.mini1 == null && BossManager.Instance.mini2 == null);
+        Debug.Log(isMiniBoss);
+
         if (!isMiniBoss)
         {
-            Debug.Log("Á×À½");
             BossManager.Instance.InstantiateMiniBoss();
             base.Dead();
             return;
         }
-        else
+        else if (BossManager.Instance.isdivisible && (BossManager.Instance.mini1 == null || BossManager.Instance.mini2 == null) && isMiniBoss)
         {
-
-
-            //°ÔÀÓ ³¡
             StageFlow.Instance.EndStage();
-
         }
 
 

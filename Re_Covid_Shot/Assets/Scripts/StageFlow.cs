@@ -66,6 +66,7 @@ public class StageFlow : Singleton<StageFlow>
 
     public void EndStage()
     {
+        Debug.Log(stageCount);
         StageBonusScoreCheck();
         if (stageCount >= 2)
         {

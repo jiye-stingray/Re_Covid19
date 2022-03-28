@@ -154,7 +154,8 @@ MonoBehaviour:
   isBoss: 1
   power: 20
   score: 50
-  isMiniBoss: 0
+  moveVec: {x: 0, y: -1, z: 0}
+  isMiniBoss: 1
   MaxHP: 50
   attackIndex: 0
   spawnEnemy:

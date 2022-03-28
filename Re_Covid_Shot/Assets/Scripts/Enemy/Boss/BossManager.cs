@@ -12,12 +12,13 @@ public class BossManager : Singleton<BossManager>
     public GameObject[] bosses;
     int stage => StageFlow.Instance.stageCount;
     public Image HPBar;
-    float HP;
+    public float HP;
     float MaxHP;
+    public bool isdivisible;
 
     GameObject boss = null;
-    GameObject mini1 = null;
-    GameObject mini2 = null;
+    public GameObject mini1 = null;
+    public GameObject mini2 = null;
 
     void Start()
     {
@@ -26,16 +27,28 @@ public class BossManager : Singleton<BossManager>
 
     void Update()
     {
-        if (boss != null)
+        if (HPBar.enabled == true)
         {
-            HP = boss.GetComponent<Boss>().HP;
+            if (boss != null)
+                HP = boss.GetComponent<Boss>().HP;
+            else if (mini1 != null && mini2 != null)
+                HP = mini1.GetComponent<Boss>().HP + mini2.GetComponent<Boss>().HP;
+            else if (mini1 != null && mini2 == null)
+                HP = mini1.GetComponent<Boss>().HP;
+            else if (mini1 == null && mini2 != null)
+                HP = mini2.GetComponent<Boss>().HP;
+
             HPBar.fillAmount = (float)HP / MaxHP;
+
         }
+
+
     }
 
     public void InstantiateBoss()
     {
         HPBar.enabled = true;
+        isdivisible = true;
         boss = Instantiate(bosses[stage - 1]);
         MaxHP = boss.GetComponent<Boss>().MaxHP;
 
@@ -43,24 +56,22 @@ public class BossManager : Singleton<BossManager>
 
     public void InstantiateMiniBoss()
     {
+        HPBar.enabled = true;
+
         mini1 = Instantiate(bosses[2]);
         mini2 = Instantiate(bosses[2]);
 
         MoveMiniBoss();
 
-        HP = mini1.GetComponent<Boss>().HP + mini2.GetComponent<Boss>().HP;
         MaxHP = mini1.GetComponent<Boss>().MaxHP + mini2.GetComponent<Boss>().MaxHP;
     }
 
     void MoveMiniBoss()
     {
-        float timer = 0f;
         Boss logic1 = mini1.GetComponent<Boss>();
         logic1.moveVec = Vector2.right;
         Boss logic2 = mini2.GetComponent<Boss>();
         logic2.moveVec = Vector2.left;
-
-
     }
 
 }
