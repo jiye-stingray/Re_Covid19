@@ -54,6 +54,8 @@ public class RankingSet : MonoBehaviour
     /// </summary>
     public void InputBtnClick()
     {
+        if (input.text == "")
+            return;
         ID = input.text;
         InputPanel.SetActive(false);
         RankingSeting(ID, score);
