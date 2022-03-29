@@ -127,18 +127,26 @@ public class Boss : Enemy
     public override void Dead()
     {
 
-        BossManager.Instance.HPBar.enabled = false;
         if (!isMiniBoss)
         {
+            BossManager.Instance.HPBar.enabled = false;
             BossManager.Instance.InstantiateMiniBoss();
             base.Dead();
             return;
         }
-        else if (BossManager.Instance.isdivisible && (BossManager.Instance.mini1 == null || BossManager.Instance.mini2 == null) && isMiniBoss)
+        else
         {
-            BossManager.Instance.isdivisible = false;
-            StageFlow.Instance.EndStage();
+            if ((BossManager.Instance.mini1 != null && BossManager.Instance.mini2 != null))  //분열된 적중에 처음으로 죽었을 떄
+            {
+                BossManager.Instance.isLastMiniBoss = true;
+            }
+            else if (BossManager.Instance.isLastMiniBoss)
+            {
+                BossManager.Instance.HPBar.enabled = false;
+                StageFlow.Instance.EndStage();
+            }
         }
+
 
 
 

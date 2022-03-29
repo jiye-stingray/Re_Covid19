@@ -65,16 +65,6 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene("GameOverScene");
     }
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
-
     public void Init()
     {
 

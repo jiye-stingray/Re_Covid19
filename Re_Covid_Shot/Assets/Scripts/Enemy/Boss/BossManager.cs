@@ -14,8 +14,8 @@ public class BossManager : Singleton<BossManager>
     int stage => StageFlow.Instance.stageCount;
     public Image HPBar;
     public float HP;
-    float MaxHP;
-    public bool isdivisible;
+    public float MaxHP;
+    public bool isLastMiniBoss ;        //분열된 보스에서 마지막 보스만 남았을 때 => 마지막 보스를 죽이면 다음 스테이지(또는, 게임 끝)
 
     public GameObject boss = null;
     public GameObject mini1 = null;
@@ -30,29 +30,27 @@ public class BossManager : Singleton<BossManager>
     {
         if (HPBar.enabled == true)
         {
-            if (boss != null)
-                HP = boss.GetComponent<Boss>().HP;
-            else if (mini1 != null && mini2 != null)
-                HP = mini1.GetComponent<Boss>().HP + mini2.GetComponent<Boss>().HP;
-            else if (mini1 != null && mini2 == null)
-                HP = mini1.GetComponent<Boss>().HP + mini2.GetComponent<Boss>().HP;
-            else if (mini1 == null && mini2 != null)
-                HP = mini2.GetComponent<Boss>().HP + mini2.GetComponent<Boss>().HP;
+            ShowHPBarCheck();
 
             HPBar.fillAmount = (float)HP / MaxHP;
         }
 
     }
 
+    /// <summary>
+    /// 보스 생성
+    /// </summary>
     public void InstantiateBoss()
     {
         HPBar.enabled = true;
-        isdivisible = true;
         boss = Instantiate(bosses[stage - 1]);
         MaxHP = boss.GetComponent<Boss>().MaxHP;
 
     }
 
+    /// <summary>
+    /// 미니보스 생성
+    /// </summary>
     public void InstantiateMiniBoss()
     {
         HPBar.enabled = true;
@@ -65,6 +63,9 @@ public class BossManager : Singleton<BossManager>
         MaxHP = mini1.GetComponent<Boss>().MaxHP + mini2.GetComponent<Boss>().MaxHP;
     }
 
+    /// <summary>
+    /// 등장한 미니보스가 양옆으로 이동
+    /// </summary>
     void MoveMiniBoss()
     {
         Boss logic1 = mini1.GetComponent<Boss>();
@@ -73,5 +74,35 @@ public class BossManager : Singleton<BossManager>
         logic2.moveVec = Vector2.left;
     }
 
+    void ShowHPBarCheck()
+    {
 
+        if (boss != null)
+        {
+            HP = boss.GetComponent<Boss>().HP;
+        }
+        else if (mini1 != null && mini2 != null)
+        {
+            HP = mini1.GetComponent<Boss>().HP + mini2.GetComponent<Boss>().HP;
+        }
+        else if (mini1 != null && mini2 == null)
+        {
+            HP = mini1.GetComponent<Boss>().HP;
+        }
+        else if (mini1 == null && mini2 != null)
+        {
+            HP =mini2.GetComponent<Boss>().HP;
+        }
+    }
+
+    public void InitBossManager()
+    {
+        HP = 0;
+        MaxHP = 0;
+        boss = null;
+        mini1 = null;
+        mini2 = null;
+        enabled = false;
+        isLastMiniBoss = false;
+    }
 }

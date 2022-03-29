@@ -50,11 +50,10 @@ public class StageFlow : Singleton<StageFlow>
 
     IEnumerator GameClear()
     {
-        while (stageClearPanel.color == Color.white)
-        {
-            stageClearPanel.color += new Color(0, 0, 0 , 1);
-            yield return new WaitForSeconds(0.5f);
-        }
+        stageText.text = "Game Clear!";
+        anim.SetTrigger("isShow");
+
+        yield return new WaitForSeconds(1f);
 
         GameManager.Instance.GameOver();
 
@@ -78,7 +77,7 @@ public class StageFlow : Singleton<StageFlow>
 
     public void EndStage()
     {
-        InitBossManager();
+        BossManager.Instance.InitBossManager();
         StageBonusScoreCheck();
         if (stageCount >= 2)
         {
@@ -101,14 +100,7 @@ public class StageFlow : Singleton<StageFlow>
         gameManager.stageScore += GameManager.MaxPain - gameManager.Pain;
     }
 
-    void InitBossManager()
-    {
-        BossManager.HP = 0;
-        BossManager.boss = null;
-        BossManager.mini1 = null;
-        BossManager.mini2 = null;
-        BossManager.HPBar.enabled = false;
-    }
+
 
     public void MoveStage(int stage)
     {

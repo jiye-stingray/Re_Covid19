@@ -66,7 +66,6 @@ public class BossPlus : Boss
 
     IEnumerator BulletToTarget(List<Transform> b1)
     {
-        Debug.Log(b1.Count);
         yield return new WaitForSeconds(0.5f);
 
         for (int i = 0; i < b1.Count; i++)
@@ -79,11 +78,9 @@ public class BossPlus : Boss
 
             //x, y의 값을 조합하여 z 방향으로 변형함 -> ~도 단위로 변형
             float angle = Mathf.Atan2(target_dir.y, target_dir.x) * Mathf.Rad2Deg;
-            Debug.Log(angle);
 
             //Target 방향으로 이동
-            b1[i].rotation = //Quaternion.AngleAxis(angle + 90,Vector3.forward);
-                Quaternion.Euler(0, 0, angle + 90);
+            b1[i].rotation = Quaternion.AngleAxis(angle + 90,Vector3.forward);
 
         }
         b1.Clear();
