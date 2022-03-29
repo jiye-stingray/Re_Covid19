@@ -77,7 +77,6 @@ public class StageFlow : Singleton<StageFlow>
 
     public void EndStage()
     {
-        BossManager.Instance.InitBossManager();
         StageBonusScoreCheck();
         if (stageCount >= 2)
         {

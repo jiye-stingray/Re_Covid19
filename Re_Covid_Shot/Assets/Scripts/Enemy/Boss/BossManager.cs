@@ -94,15 +94,4 @@ public class BossManager : Singleton<BossManager>
             HP =mini2.GetComponent<Boss>().HP;
         }
     }
-
-    public void InitBossManager()
-    {
-        HP = 0;
-        MaxHP = 0;
-        boss = null;
-        mini1 = null;
-        mini2 = null;
-        enabled = false;
-        isLastMiniBoss = false;
-    }
 }
