@@ -70,7 +70,7 @@ public class BossPlus : Boss
 
         for (int i = 0; i < b1.Count; i++)
         {
-            if (b1[i] == null)
+            if (b1[i] == null)  //오브젝트가 이동하기 전에 파괴되는 상황(벽에 총알 부딪히기 등)
                 continue;
 
             //현재 총알의 위치에서 플레이의 위치를 벡터값을 뺄셈하여 방향을 구함

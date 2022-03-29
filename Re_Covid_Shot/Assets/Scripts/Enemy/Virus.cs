@@ -15,7 +15,7 @@ public class Virus : Enemy
     IEnumerator Dash()
     {
         float temp = speed;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         speed = dashSpeed;
         yield return new WaitForSeconds(0.3f);
         speed = temp;

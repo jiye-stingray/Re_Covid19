@@ -55,7 +55,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
         {
             _instance = this as T;
 
-            if (isDontDestroy)
+            if (isDontDestroy)      //GameManager
                 DontDestroyOnLoad(gameObject);
         }
         else
