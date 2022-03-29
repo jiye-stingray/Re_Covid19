@@ -7,6 +7,8 @@ public class CheatController : Singleton<CheatController>
 {
     [SerializeField] GameObject cheatPanel;
     GameManager gameManager => GameManager.Instance;
+    BossManager bossManager => BossManager.Instance;
+    StageFlow Stage => StageFlow.Instance;
     Player player => Player.Instance;
 
     [SerializeField] TMP_InputField stageInput;
@@ -59,7 +61,7 @@ public class CheatController : Singleton<CheatController>
             AllEnemyDead(true);
         }
     }
-
+    
     /// <summary>
     /// 모든 적군을 죽이는 함수
     /// </summary>
@@ -78,6 +80,10 @@ public class CheatController : Singleton<CheatController>
             enemyLogic.Dead();
         }
 
+        if (bossManager.mini1 != null && bossManager.mini2 != null)
+        {
+            StageFlow.Instance.EndStage();
+        }
     }
 
     private void SpawnRed()

@@ -11,8 +11,8 @@ public class Boss : Enemy
     public int MaxHP;
     public int attackIndex = 0;
 
-    [SerializeField] GameObject[] spawnEnemy;
-    [SerializeField] Transform[] spawnPos;
+    public GameObject[] spawnEnemy;
+    public Transform[] spawnPos;
 
     protected override void Start()
     {
@@ -62,7 +62,11 @@ public class Boss : Enemy
 
     }
 
-    public IEnumerator CircleShot()
+    /// <summary>
+    /// 원형 탄막
+    /// </summary>
+    /// <returns></returns>
+    public virtual IEnumerator CircleShot()
     {
         for (int i = 0; i < 3; i++)
         {
@@ -82,9 +86,13 @@ public class Boss : Enemy
         CheckAttack();
     }
 
-    public IEnumerator SnakeShot()
+    /// <summary>
+    /// 뱀꼬리 형태의 공격
+    /// </summary>
+    /// <returns></returns>
+    public virtual IEnumerator SnakeShot()
     {
-        int bulletCount = 101;
+        int bulletCount = 51;
 
         for (int i = 0; i < bulletCount; i++)
         {
@@ -105,29 +113,27 @@ public class Boss : Enemy
 
     }
 
-    public IEnumerator SpawnEnemy()
+    /// <summary>
+    /// 적군들 소환
+    /// </summary>
+    /// <returns></returns>
+    public virtual IEnumerator SpawnEnemy()
     {
-        for (int i = 0; i < 3; i++)
-        {
-            Instantiate(spawnEnemy[Random.Range(0,spawnEnemy.Length)], spawnPos[0].position, spawnPos[0].rotation);
-            Instantiate(spawnEnemy[Random.Range(0, spawnEnemy.Length)], spawnPos[1].position, spawnPos[1].rotation);
+        Instantiate(spawnEnemy[Random.Range(0, spawnEnemy.Length)], spawnPos[0].position, spawnPos[0].rotation);
+        Instantiate(spawnEnemy[Random.Range(0, spawnEnemy.Length)], spawnPos[1].position, spawnPos[1].rotation);
 
-            yield return new WaitForSeconds(1f);
-        }
         yield return new WaitForSeconds(0.5f);
         attackIndex++;
         CheckAttack();
     }
 
-    void Split()
-    {
-
-    }
-
+    /// <summary>
+    /// 죽은 경우
+    /// </summary>
     public override void Dead()
     {
 
-        if (!isMiniBoss)
+        if (!isMiniBoss)    //미니보스가 아닐때
         {
             BossManager.Instance.HPBar.enabled = false;
             BossManager.Instance.InstantiateMiniBoss();
@@ -136,19 +142,17 @@ public class Boss : Enemy
         }
         else
         {
+            //마지막 미니보스가 남았을 때
             if ((BossManager.Instance.mini1 != null && BossManager.Instance.mini2 != null))  //분열된 적중에 처음으로 죽었을 떄
             {
                 BossManager.Instance.isLastMiniBoss = true;
             }
-            else if (BossManager.Instance.isLastMiniBoss)
+            else if (BossManager.Instance.isLastMiniBoss)   //모든 미니보스가 죽었을 때
             {
                 BossManager.Instance.HPBar.enabled = false;
-                StageFlow.Instance.EndStage();
+                StageFlow.Instance.EndStage();  //게임 끝
             }
         }
-
-
-
 
         base.Dead();
     }

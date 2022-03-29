@@ -35,6 +35,10 @@ public class BossManager : Singleton<BossManager>
             HPBar.fillAmount = (float)HP / MaxHP;
         }
 
+        if(mini1 != null && mini2 != null)
+        {
+            Debug.Log("»Æ¿Œ");
+        }
     }
 
     /// <summary>

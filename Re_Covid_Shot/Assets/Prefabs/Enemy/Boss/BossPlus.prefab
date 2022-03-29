@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59ad7a82f4ca8e489ad3f15b70d837d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 200
+  hp: 400
   speed: 2
   bullet: {fileID: 6571373484723584160, guid: 3e00a41f9ff6ca94d818a909ec69bf5a, type: 3}
   isBoss: 1
@@ -176,7 +176,7 @@ MonoBehaviour:
   score: 200
   moveVec: {x: 0, y: -1, z: 0}
   isMiniBoss: 0
-  MaxHP: 200
+  MaxHP: 400
   attackIndex: 0
   spawnEnemy:
   - {fileID: 686896630724272850, guid: cc69971ef5fc27a46a99ae8a8710e383, type: 3}
