@@ -15,7 +15,7 @@ public class BossManager : Singleton<BossManager>
     public Image HPBar;
     public float HP;
     public float MaxHP;
-    public bool isLastMiniBoss ;        //분열된 보스에서 마지막 보스만 남았을 때 => 마지막 보스를 죽이면 다음 스테이지(또는, 게임 끝)
+    public bool isLastMiniBoss = false;        //분열된 보스에서 마지막 보스만 남았을 때 => 마지막 보스를 죽이면 다음 스테이지(또는, 게임 끝)
 
     public GameObject boss = null;
     public GameObject mini1 = null;
@@ -35,10 +35,6 @@ public class BossManager : Singleton<BossManager>
             HPBar.fillAmount = (float)HP / MaxHP;
         }
 
-        if(mini1 != null && mini2 != null)
-        {
-            Debug.Log("확인");
-        }
     }
 
     /// <summary>
@@ -58,7 +54,7 @@ public class BossManager : Singleton<BossManager>
     public void InstantiateMiniBoss()
     {
         HPBar.enabled = true;
-
+        isLastMiniBoss = false;
         mini1 = Instantiate(bosses[stage + 1]);
         mini2 = Instantiate(bosses[stage + 1]);
 

@@ -68,6 +68,11 @@ public class CheatController : Singleton<CheatController>
     /// <param name="isCheat">치트로 사용할 경우에는 보스 포함</param>
     public void AllEnemyDead(bool isCheat)
     {
+        if (bossManager.mini1 != null && bossManager.mini2 != null)     //미니 보스들이 죽었을 때는 다음 스테이지로 넘어가기
+        {
+            StageFlow.Instance.EndStage();
+        }
+
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         for (int i = 0; i < enemies.Length; i++)
         {
@@ -80,10 +85,7 @@ public class CheatController : Singleton<CheatController>
             enemyLogic.Dead();
         }
 
-        if (bossManager.mini1 != null && bossManager.mini2 != null)
-        {
-            StageFlow.Instance.EndStage();
-        }
+
     }
 
     private void SpawnRed()
