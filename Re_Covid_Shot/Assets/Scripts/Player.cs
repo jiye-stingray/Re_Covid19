@@ -19,6 +19,8 @@ public class Player : Singleton<Player>
 
     [SerializeField] GameObject[] bullets;
     private int bulletLevel;
+    AudioSource audio;
+
     public int BulletLevel
     {
         get => bulletLevel;
@@ -39,8 +41,9 @@ public class Player : Singleton<Player>
         base.Awake();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-
+        audio = GetComponent<AudioSource>();
     }
+
 
     // Start is called before the first frame update
     void Start()
@@ -93,7 +96,7 @@ public class Player : Singleton<Player>
     /// </summary>
     void Fire()
     {
-
+        audio.Play();
         Instantiate(bullets[bulletLevel], transform.position, transform.rotation);
         fireTimer = 0f;
 

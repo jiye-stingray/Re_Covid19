@@ -26,7 +26,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 6098
+  controlID: 11104
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 6099
+  controlID: 11185
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,7 +170,7 @@ MonoBehaviour:
   - {fileID: 5}
   - {fileID: 6}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 0
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -418,9 +418,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -6.5557313, y: 7.609376, z: -0.1537948}
+    m_Target: {x: -4.924045, y: 6.6045375, z: -0.13227646}
     speed: 2
-    m_Value: {x: -6.5557313, y: 7.609376, z: -0.1537948}
+    m_Value: {x: -4.924045, y: 6.6045375, z: -0.13227646}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -471,9 +471,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 24.459497
+    m_Target: 22.307673
     speed: 2
-    m_Value: 24.459497
+    m_Value: 22.307673
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -530,6 +530,7 @@ MonoBehaviour:
     m_KeySerializationHelper:
     - {fileID: -5566114115176872939, guid: 1779c72cbb71edd4999c0676c397f901, type: 2}
     - {fileID: 6400714498025696896, guid: 944e7bb847bf8c745a8fdc56944981e1, type: 2}
+    - {fileID: 7457120078121364614, guid: e8db06099dc63cd4786215e346c51cd2, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.7964669
       e01: 0
@@ -563,10 +564,26 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 944e7bb847bf8c745a8fdc56944981e1, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: e8db06099dc63cd4786215e346c51cd2, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 6400714498025696896, guid: 944e7bb847bf8c745a8fdc56944981e1, type: 2}
+  - m_Target: {fileID: 7457120078121364614, guid: e8db06099dc63cd4786215e346c51cd2, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -736,8 +753,8 @@ MonoBehaviour:
     y: 0
     width: 275
     height: 947
-  m_MinSize: {x: 230, y: 250}
-  m_MaxSize: {x: 10000, y: 10000}
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -784,21 +801,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Prefabs/Enemy
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Prefabs/Enemy
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\user\Documents\GitHub\Re_Covid19\Re_Covid_Shot
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b2620000
-    m_LastClickedID: 25266
+    m_SelectedIDs: de620000
+    m_LastClickedID: 25310
     m_ExpandedIDs: 00000000ae620000b0620000b2620000b4620000b6620000b8620000ba620000bc620000be620000c0620000c262000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -852,8 +869,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 5e600000
+    m_LastClickedInstanceID: 24670
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 2c620000566300002a620000
     m_RenameOverlay:
@@ -879,7 +896,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 258}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 115
@@ -940,10 +957,10 @@ MonoBehaviour:
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
-    m_CachedPref: -160
+    m_CachedPref: 151
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -1
+  m_LastInspectedObjectInstanceID: 24670
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0

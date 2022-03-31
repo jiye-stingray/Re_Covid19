@@ -26,10 +26,13 @@ public class Enemy : MonoBehaviour
     public Vector3 moveVec;//아래로 내려가는 Enemy
     public Player player => Player.Instance;
     Animator anim;
+    AudioSource audio;
 
     void Awake()
     {
         anim = GetComponent<Animator>();
+        if (!isBoss)
+            audio = GetComponent<AudioSource>();
     }
 
     protected virtual void Start()
@@ -70,6 +73,8 @@ public class Enemy : MonoBehaviour
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
             if(bullet.myBullet == Bullet.BulletType.Player)     //충돌한 총알이 플레이어의 것이라면
             {
+                if(!isBoss)
+                    audio.Play();
                 anim.SetTrigger("isHit");
                 HP -= Mathf.Max(0,bullet.power);    //총알의 공격력만큼 hp 감소
             }
