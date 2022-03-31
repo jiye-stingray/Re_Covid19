@@ -16,6 +16,8 @@ public class StageFlow : Singleton<StageFlow>
     [SerializeField] Image stageClearPanel;
      Animator anim;
 
+    [SerializeField] Sprite[] sprites;
+    [SerializeField] SpriteRenderer background;
     public override void Awake()
     {
         anim = ImagePanel.GetComponent<Animator>();
@@ -64,7 +66,7 @@ public class StageFlow : Singleton<StageFlow>
     {
         if (stage == 1)
             StartCoroutine(StartGame());
-
+        background.sprite = sprites[stage - 1];
         GameManager.Instance.Init();
 
         stageText.text = "Stage " + stage;
