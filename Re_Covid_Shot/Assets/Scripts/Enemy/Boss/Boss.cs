@@ -135,6 +135,7 @@ public class Boss : Enemy
 
         if (!isMiniBoss)    //미니보스가 아닐때
         {
+            
             BossManager.Instance.HPBar.enabled = false;
             BossManager.Instance.InstantiateMiniBoss();
             base.Dead();
@@ -152,8 +153,9 @@ public class Boss : Enemy
                 BossManager.Instance.HPBar.enabled = false;
                 StageFlow.Instance.EndStage();  //게임 끝
             }
+            base.Dead();
+
         }
 
-        base.Dead();
     }
 }

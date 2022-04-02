@@ -53,6 +53,7 @@ public class BossManager : Singleton<BossManager>
     /// </summary>
     public void InstantiateMiniBoss()
     {
+        Debug.Log("fdsf");
         HPBar.enabled = true;
         isLastMiniBoss = false;
         mini1 = Instantiate(bosses[stage + 1]);

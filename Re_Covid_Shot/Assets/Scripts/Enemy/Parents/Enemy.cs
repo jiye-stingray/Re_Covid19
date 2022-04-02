@@ -27,10 +27,12 @@ public class Enemy : MonoBehaviour
     public Player player => Player.Instance;
     Animator anim;
     AudioSource audio;
+    Collider2D collider;
 
     void Awake()
     {
         anim = GetComponent<Animator>();
+        collider = GetComponent<Collider2D>();
         if (!isBoss)
             audio = GetComponent<AudioSource>();
     }
@@ -53,8 +55,16 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public virtual void Dead()
     {
+        collider.enabled = false;
+        anim.SetTrigger("isDead");
         GameManager.Instance.enemyScore += score;       //몬스터에 할당된 점수만큼 점수 획득
+
+    }
+
+    public void Destroy()
+    {
         Destroy(gameObject);                            //오브젝트 삭제
+
     }
 
     /// <summary>
